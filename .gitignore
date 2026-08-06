@@ -1,0 +1,27 @@
+# Local working notes and publishing drafts (not part of the standard)
+docs/07-owasp-cms-page-draft.md
+docs/08-founding-meeting-agenda.md
+
+# Operating-system and editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Build and local validation output
+build/
+dist/
+site/
+coverage/
+htmlcov/

@@ -1,0 +1,19 @@
+{
+  "spec_version": "0.1.0",
+  "title": "OOVS v0.1 Foundational Acceptance Tests",
+  "tests": [
+    {
+      "id": "OOVS-v0.1.0-T99",
+      "requirement_ref": "OOVS-v0.1.0-99",
+      "title": "Unknown requirement reference",
+      "target_types": ["workflow"],
+      "preconditions": ["Negative semantic fixture."],
+      "sample_method": "Use the single deliberately invalid test reference in this fixture.",
+      "steps": ["Resolve the requirement reference."],
+      "expected_evidence": ["A known requirement identifier."],
+      "pass_criteria": ["The requirement reference exists."],
+      "failure_conditions": ["The requirement reference does not exist."],
+      "safety_notes": ["No real data is present."]
+    }
+  ]
+}

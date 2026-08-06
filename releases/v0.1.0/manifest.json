@@ -1,0 +1,187 @@
+{
+  "manifest_version": "0.1",
+  "release_id": "oovs-v0.1.0",
+  "asset": "OOVS",
+  "version": "0.1.0",
+  "status": "released",
+  "release_date": "2026-08-05",
+  "commit": null,
+  "tag": null,
+  "scope": "The OOVS L1 Foundational baseline: ten testable requirements, machine-readable catalogue, acceptance tests, assessment format, external mappings, governance, and validation assets.",
+  "runtime": {
+    "python": ">=3.10",
+    "dependencies": ["jsonschema==4.25.1"],
+    "validation_command": "python3 scripts/validate_assets.py"
+  },
+  "canonical_files": [
+    {
+      "path": "oovs/v0.1/standard.md",
+      "role": "normative",
+      "sha256": "5abb47ec5caf129809aad650cbec5be5820e82f03a0fc577043e72b8f8a57527"
+    },
+    {
+      "path": "oovs/v0.1/requirements.json",
+      "role": "machine-readable",
+      "sha256": "d810ee2d97a90299e5cafb5c96cfc7595819f0d35c9065ff8344dc6f94962236"
+    },
+    {
+      "path": "oovs/v0.1/requirements.schema.json",
+      "role": "machine-readable",
+      "sha256": "350070bb3db941f6390d933e2a19f99a27b47f988d902f67bcca46e40c45480f"
+    },
+    {
+      "path": "oovs/v0.1/tests.json",
+      "role": "test",
+      "sha256": "6f68d53ba4bc7fe4651a6c9a936d21f24d92f486906bf62c45b17e572ae35d24"
+    },
+    {
+      "path": "oovs/v0.1/tests.schema.json",
+      "role": "test",
+      "sha256": "0a2cc6cb33883fea0f8581c2a54151396a08af3b115f58356c7e782314057777"
+    },
+    {
+      "path": "oovs/v0.1/assessment.schema.json",
+      "role": "machine-readable",
+      "sha256": "bd67d32b0ec5e960964ba5a2a7877c5791bbccd497b15562f7e8d6fe44da9332"
+    },
+    {
+      "path": "oovs/v0.1/examples/synthetic-assessment.json",
+      "role": "example",
+      "sha256": "8c1a54cdf2c7a9c09d2cb438f897f66bacbf5c220c7e544546b0996d1dd49878"
+    },
+    {
+      "path": "oovs/v0.1/mappings.md",
+      "role": "informative",
+      "sha256": "0663c0589ac3767e8d7845568b1cf8d24a7dc7bcad0f1a81a8b5a1cc23471cca"
+    },
+    {
+      "path": "docs/safety-rights-and-misuse-policy.md",
+      "role": "governance",
+      "sha256": "9a50ff2459e34af705f5e8f66d2d65217776e14dd264b02232e56cbef30dafff"
+    },
+    {
+      "path": "docs/prior-art-and-positioning.md",
+      "role": "informative",
+      "sha256": "87b4d1e47bf93b3f3c59e03a3b3a94930a512f8da045b966c648cf281895df3a"
+    },
+    {
+      "path": "GOVERNANCE.md",
+      "role": "governance",
+      "sha256": "6b6f7d7f91933295f362e7d1f9b30e379a2efac7b87759f4c612543437cb947d"
+    },
+    {
+      "path": "programme/RELEASE_POLICY.md",
+      "role": "governance",
+      "sha256": "a36a713b333861a3afbeb3875a6c7cd53376b5f16b4654322900080a73046edb"
+    },
+    {
+      "path": "releases/v0.1.0/README.md",
+      "role": "informative",
+      "sha256": "7deae951046c81ce866d63dddd99fa288e9a0fdaf75335c27e5b20a4373abea8"
+    },
+    {
+      "path": "releases/manifest.schema.json",
+      "role": "validation",
+      "sha256": "12606487b2e184aa7f228ea8dd3fdfe11856842654ee82908d057cc782193fa5"
+    },
+    {
+      "path": "requirements-validation.txt",
+      "role": "validation",
+      "sha256": "44ff0dc2f1e40311b8239e83146749ab9d9cee2a650e699f5464755d552ee20d"
+    },
+    {
+      "path": "scripts/validate_assets.py",
+      "role": "validation",
+      "sha256": "0feea6074847db6c2ca2199baefd8c5e659cbb5f8c06b07986833e095575b52c"
+    },
+    {
+      "path": ".github/workflows/validate-structured-assets.yml",
+      "role": "validation",
+      "sha256": "3c17e94125f583f9e8a6acf8e02112f2bd9b682a35a77b8fa4e1b44b91135cf4"
+    },
+    {
+      "path": "tests/fixtures/manifest.json",
+      "role": "test",
+      "sha256": "9291ed722b89cbb9c1eeb43b3bc79630d2b7f2a5353537f37381920f9d7ec069"
+    },
+    {
+      "path": "tests/fixtures/invalid/oig-unknown-node.json",
+      "role": "test",
+      "sha256": "3a1bd49baba40c7216c27a7e9cb445621567a6b8f4f198042ddc13c6e21ae755"
+    },
+    {
+      "path": "tests/fixtures/invalid/ottm-missing-limitations.json",
+      "role": "test",
+      "sha256": "b510c21d628a62d340a9771be0ba60f50c401055d1dc5c5577f21a521451124f"
+    },
+    {
+      "path": "tests/fixtures/invalid/assessment-invalid-status.json",
+      "role": "test",
+      "sha256": "3ee77727a475bc2643ea775224dafbee4d3f98a38764e80deb5dfdcac996131a"
+    },
+    {
+      "path": "tests/fixtures/invalid/tests-unknown-requirement.json",
+      "role": "test",
+      "sha256": "75c3146ba326c35c125cd1654a7ebd2aadb16d848be1b5ece653753b39fb80aa"
+    },
+    {
+      "path": "tests/fixtures/invalid/requirements-missing-evidence.json",
+      "role": "test",
+      "sha256": "aeed79098308495bca24ea3aefe8eb07ab5e14569b4aac85656c8f29fb4b6793"
+    }
+  ],
+  "validation": {
+    "command": "python3 scripts/validate_assets.py",
+    "result": "passed",
+    "date": "2026-08-05",
+    "summary": "Schemas, cross-file semantics, Markdown/JSON requirement parity, positive and expected-failure fixtures, local links, and manifest hashes all validated."
+  },
+  "quality_checks": [
+    {
+      "name": "JSON Schema conformance",
+      "result": "passed",
+      "evidence": "All schemas validate as Draft 2020-12 and every canonical example validates against its schema."
+    },
+    {
+      "name": "Requirement and test coverage",
+      "result": "passed",
+      "evidence": "Ten requirements each map to exactly one acceptance test, with unique identifiers and ordered ordinals."
+    },
+    {
+      "name": "Markdown and machine-readable parity",
+      "result": "passed",
+      "evidence": "Each requirement heading, objective, and normative statement matches requirements.json."
+    },
+    {
+      "name": "Expected-failure fixtures",
+      "result": "passed",
+      "evidence": "Five negative fixtures fail validation for their declared reasons."
+    },
+    {
+      "name": "Assessment result semantics",
+      "result": "passed",
+      "evidence": "Result states, applicability rules, evidence requirements, dates, and overall outcome are enforced."
+    },
+    {
+      "name": "Documentation links",
+      "result": "passed",
+      "evidence": "All local Markdown links resolve inside the repository."
+    },
+    {
+      "name": "Safety review of published material",
+      "result": "passed",
+      "evidence": "All examples and fixtures are synthetic and contain no personal, case, victim, credential, or operational data."
+    }
+  ],
+  "compatibility": {
+    "identifier_stability": "Requirement identifiers follow OOVS-v0.1.0-NN and acceptance tests follow OOVS-v0.1.0-TNN. They are stable within the 0.1 line; later versions may add identifiers without renumbering published ones.",
+    "supersedes": null
+  },
+  "scope_notes": [
+    "This release defines the L1 Foundational baseline; additional assurance depth and profiles follow implementation evidence.",
+    "The synthetic assessment demonstrates the result format and does not represent an operational assessment.",
+    "External mappings are high-level relationships; clause-level crosswalks are published after primary-source and specialist review.",
+    "OIG and OTTM ship as 0.1 preview assets and are outside the normative OOVS result.",
+    "An OOVS assessment records a defined scope and result; it is not certification, accreditation, or a determination of legal compliance."
+  ]
+}

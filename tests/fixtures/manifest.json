@@ -1,0 +1,72 @@
+{
+  "version": "0.1",
+  "positive": [
+    {
+      "name": "Canonical OOVS requirements",
+      "instance": "oovs/v0.1/requirements.json",
+      "schema": "oovs/v0.1/requirements.schema.json",
+      "semantic": "oovs_requirements"
+    },
+    {
+      "name": "Canonical OOVS tests",
+      "instance": "oovs/v0.1/tests.json",
+      "schema": "oovs/v0.1/tests.schema.json",
+      "semantic": "oovs_tests"
+    },
+    {
+      "name": "Synthetic OOVS assessment",
+      "instance": "oovs/v0.1/examples/synthetic-assessment.json",
+      "schema": "oovs/v0.1/assessment.schema.json",
+      "semantic": "oovs_assessment"
+    },
+    {
+      "name": "Synthetic OIG graph",
+      "instance": "oig/examples/synthetic-mission-graph-0.1.json",
+      "schema": "oig/schema/oig-bundle-0.1.schema.json",
+      "semantic": "oig"
+    },
+    {
+      "name": "Candidate OTTM record",
+      "instance": "ottm/examples/OTTM-WEB-001.json",
+      "schema": "ottm/schema/technique-record-0.1.schema.json",
+      "semantic": "ottm"
+    }
+  ],
+  "negative": [
+    {
+      "name": "OIG relationship with unknown node",
+      "instance": "tests/fixtures/invalid/oig-unknown-node.json",
+      "schema": "oig/schema/oig-bundle-0.1.schema.json",
+      "semantic": "oig",
+      "expected_error": "unknown node"
+    },
+    {
+      "name": "OTTM record missing limitations",
+      "instance": "tests/fixtures/invalid/ottm-missing-limitations.json",
+      "schema": "ottm/schema/technique-record-0.1.schema.json",
+      "semantic": "ottm",
+      "expected_error": "limitations"
+    },
+    {
+      "name": "OOVS assessment with invalid status",
+      "instance": "tests/fixtures/invalid/assessment-invalid-status.json",
+      "schema": "oovs/v0.1/assessment.schema.json",
+      "semantic": "oovs_assessment",
+      "expected_error": "certified"
+    },
+    {
+      "name": "OOVS test references unknown requirement",
+      "instance": "tests/fixtures/invalid/tests-unknown-requirement.json",
+      "schema": "oovs/v0.1/tests.schema.json",
+      "semantic": "oovs_tests_partial",
+      "expected_error": "unknown requirement"
+    },
+    {
+      "name": "OOVS requirement missing evidence",
+      "instance": "tests/fixtures/invalid/requirements-missing-evidence.json",
+      "schema": "oovs/v0.1/requirements.schema.json",
+      "semantic": "oovs_requirements_partial",
+      "expected_error": "evidence"
+    }
+  ]
+}

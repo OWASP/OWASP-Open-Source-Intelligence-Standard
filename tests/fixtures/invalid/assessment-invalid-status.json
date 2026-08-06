@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1",
+  "oovs_version": "0.1.0",
+  "assessment_id": "oovs-assessment:invalid-status",
+  "assessment_status": "illustrative",
+  "assessment_type": "self_assessment",
+  "assessor": {
+    "role": "Negative fixture",
+    "organisation": "Fictional Example Organisation",
+    "conflicts_disclosed": true,
+    "conflict_notes": "Synthetic negative test."
+  },
+  "target": {
+    "type": "workflow",
+    "name": "Invalid synthetic workflow",
+    "owner_role": "Synthetic owner",
+    "intended_use": "Exercise expected JSON Schema failure for an invalid result status.",
+    "scope": {"included": ["Negative fixture"], "excluded": []},
+    "period": {"start": "2026-08-05", "end": "2026-08-05"},
+    "sample_method": "A deliberately invalid one-result sample is used for schema failure testing.",
+    "high_consequence": false
+  },
+  "results": [
+    {
+      "requirement_ref": "OOVS-v0.1.0-01",
+      "status": "certified",
+      "evidence_refs": ["fixture://invalid"],
+      "rationale": "This invalid status must be rejected by the assessment schema.",
+      "findings": [],
+      "exceptions": []
+    }
+  ],
+  "overall_result": "meets_all_applicable",
+  "limitations": ["Deliberately invalid fixture."],
+  "assessed_at": "2026-08-05",
+  "next_review_at": "2026-08-06",
+  "disclaimer": "An OOVS assessment records a defined scope and result; it is not certification or a determination of legal compliance."
+}

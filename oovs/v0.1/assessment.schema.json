@@ -1,0 +1,151 @@
+{
+  "$comment": "Validated as JSON Schema Draft 2020-12 by scripts/validate_assets.py.",
+  "title": "OOVS v0.1 Assessment Result",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "oovs_version",
+    "assessment_id",
+    "assessment_status",
+    "assessment_type",
+    "assessor",
+    "target",
+    "results",
+    "overall_result",
+    "limitations",
+    "assessed_at",
+    "next_review_at",
+    "disclaimer"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "oovs_version": {"const": "0.1.0"},
+    "assessment_id": {
+      "type": "string",
+      "pattern": "^oovs-assessment:[a-z0-9][a-z0-9._:-]+$"
+    },
+    "assessment_status": {"enum": ["illustrative", "draft", "final"]},
+    "assessment_type": {"enum": ["self_assessment", "independent_assessment"]},
+    "assessor": {"$ref": "#/$defs/assessor"},
+    "target": {"$ref": "#/$defs/target"},
+    "results": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/result"}
+    },
+    "overall_result": {"enum": ["meets_all_applicable", "does_not_meet"]},
+    "limitations": {"$ref": "#/$defs/non_empty_strings"},
+    "assessed_at": {"type": "string", "format": "date"},
+    "next_review_at": {"type": "string", "format": "date"},
+    "disclaimer": {
+      "const": "An OOVS assessment records a defined scope and result; it is not certification or a determination of legal compliance."
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "non_empty_strings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "assessor": {
+      "type": "object",
+      "required": ["role", "organisation", "conflicts_disclosed", "conflict_notes"],
+      "properties": {
+        "role": {"type": "string", "minLength": 1},
+        "organisation": {"type": "string", "minLength": 1},
+        "conflicts_disclosed": {"type": "boolean"},
+        "conflict_notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "period": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": {"type": "string", "format": "date"},
+        "end": {"type": "string", "format": "date"}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["included", "excluded"],
+      "properties": {
+        "included": {"$ref": "#/$defs/non_empty_strings"},
+        "excluded": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "type",
+        "name",
+        "owner_role",
+        "intended_use",
+        "scope",
+        "period",
+        "sample_method",
+        "high_consequence"
+      ],
+      "properties": {
+        "type": {"enum": ["workflow", "product"]},
+        "name": {"type": "string", "minLength": 1},
+        "owner_role": {"type": "string", "minLength": 1},
+        "intended_use": {"type": "string", "minLength": 20},
+        "scope": {"$ref": "#/$defs/scope"},
+        "period": {"$ref": "#/$defs/period"},
+        "sample_method": {"type": "string", "minLength": 20},
+        "high_consequence": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "requirement_ref",
+        "status",
+        "evidence_refs",
+        "rationale",
+        "findings",
+        "exceptions"
+      ],
+      "properties": {
+        "requirement_ref": {"type": "string", "pattern": "^OOVS-v0\\.1\\.0-[0-9]{2}$"},
+        "status": {
+          "enum": ["implemented", "partially_implemented", "not_implemented", "not_applicable"]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "rationale": {"type": "string", "minLength": 20},
+        "findings": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "implemented"}}},
+          "then": {"properties": {"evidence_refs": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "not_applicable"}}},
+          "then": {"properties": {"rationale": {"minLength": 40}}}
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

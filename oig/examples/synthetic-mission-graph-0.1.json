@@ -1,0 +1,77 @@
+{
+  "@context": "https://owasp.org/oosis/oig/0.1/context",
+  "spec_version": "0.1",
+  "bundle_id": "oig:bundle:synthetic-glass-map-001",
+  "handling_label": "TLP:CLEAR",
+  "nodes": [
+    {
+      "id": "oig:source:synthetic-public-report-001",
+      "type": "Source",
+      "name": "Synthetic public report",
+      "observed_at": "2026-07-27T12:00:00Z",
+      "handling_label": "TLP:CLEAR",
+      "confidence": {"level": "high", "basis": ["synthetic-fixture"]}
+    },
+    {
+      "id": "oig:document:synthetic-report-001",
+      "type": "Document",
+      "name": "Synthetic incident summary",
+      "observed_at": "2026-07-27T12:05:00Z",
+      "handling_label": "TLP:CLEAR",
+      "confidence": {"level": "high", "basis": ["synthetic-fixture"]}
+    },
+    {
+      "id": "oig:claim:synthetic-claim-001",
+      "type": "Claim",
+      "name": "Synthetic claim requiring verification",
+      "observed_at": "2026-07-27T12:06:00Z",
+      "handling_label": "TLP:CLEAR",
+      "confidence": {"level": "moderate", "basis": ["single-source"]}
+    },
+    {
+      "id": "oig:event:synthetic-event-001",
+      "type": "Event",
+      "name": "Synthetic security event",
+      "handling_label": "TLP:CLEAR",
+      "confidence": {"level": "moderate", "basis": ["pending-corroboration"]}
+    },
+    {
+      "id": "oig:action:synthetic-action-001",
+      "type": "Action",
+      "name": "Review and validate synthetic event",
+      "handling_label": "TLP:CLEAR",
+      "confidence": {"level": "high", "basis": ["workflow-rule"]}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "oig:relationship:synthetic-001",
+      "type": "observed_in",
+      "source_ref": "oig:claim:synthetic-claim-001",
+      "target_ref": "oig:document:synthetic-report-001",
+      "evidence_refs": ["oig:source:synthetic-public-report-001"],
+      "method": "synthetic-document-analysis",
+      "observed_at": "2026-07-27T12:06:00Z",
+      "confidence": {"level": "high", "basis": ["synthetic-fixture"]}
+    },
+    {
+      "id": "oig:relationship:synthetic-002",
+      "type": "supports",
+      "source_ref": "oig:claim:synthetic-claim-001",
+      "target_ref": "oig:event:synthetic-event-001",
+      "evidence_refs": ["oig:document:synthetic-report-001"],
+      "method": "analytic-assessment",
+      "observed_at": "2026-07-27T12:10:00Z",
+      "confidence": {"level": "moderate", "basis": ["single-source"]}
+    },
+    {
+      "id": "oig:relationship:synthetic-003",
+      "type": "actioned_by",
+      "source_ref": "oig:action:synthetic-action-001",
+      "target_ref": "oig:event:synthetic-event-001",
+      "method": "action-product-contract",
+      "observed_at": "2026-07-27T12:15:00Z",
+      "confidence": {"level": "high", "basis": ["synthetic-fixture"]}
+    }
+  ]
+}

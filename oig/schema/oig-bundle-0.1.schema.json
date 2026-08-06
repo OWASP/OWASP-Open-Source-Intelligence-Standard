@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://owasp.org/oosis/oig/0.1/oig-bundle.schema.json",
+  "title": "OOSIS Intelligence Graph Bundle 0.1",
+  "description": "A minimal, cross-domain graph bundle for synthetic and implementation examples.",
+  "type": "object",
+  "required": ["spec_version", "bundle_id", "nodes", "relationships"],
+  "properties": {
+    "@context": {
+      "type": ["string", "object", "array"]
+    },
+    "spec_version": {
+      "const": "0.1"
+    },
+    "bundle_id": {
+      "type": "string",
+      "pattern": "^oig:bundle:[A-Za-z0-9._:-]+$"
+    },
+    "handling_label": {
+      "enum": ["TLP:CLEAR", "TLP:GREEN", "TLP:AMBER", "TLP:RED", "UNSPECIFIED"]
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/node"}
+    },
+    "relationships": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/relationship"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "oig_id": {
+      "type": "string",
+      "pattern": "^oig:[a-z][a-z0-9_-]*:[A-Za-z0-9._:-]+$"
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["level"],
+      "properties": {
+        "level": {"enum": ["low", "moderate", "high"]},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "basis": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "name"],
+      "properties": {
+        "id": {"$ref": "#/$defs/oig_id"},
+        "type": {
+          "enum": [
+            "Source", "Document", "Media", "Observable", "Claim", "Event",
+            "Organisation", "Persona", "Account", "Domain", "Location", "Campaign",
+            "Assessment", "Hypothesis", "Indicator", "Action", "ToolRun"
+          ]
+        },
+        "name": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "handling_label": {"enum": ["TLP:CLEAR", "TLP:GREEN", "TLP:AMBER", "TLP:RED", "UNSPECIFIED"]},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "properties": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "required": ["id", "type", "source_ref", "target_ref", "confidence"],
+      "properties": {
+        "id": {"$ref": "#/$defs/oig_id"},
+        "type": {
+          "enum": [
+            "observed_in", "published_by", "uses", "hosts", "resolves_to", "linked_to",
+            "same_as", "likely_same_as", "supports", "contradicts", "mentions", "depicts",
+            "located_at", "occurred_at", "precedes", "part_of", "targets", "attributed_to",
+            "associated_with", "derived_from", "collected_by", "analysed_by", "actioned_by"
+          ]
+        },
+        "source_ref": {"$ref": "#/$defs/oig_id"},
+        "target_ref": {"$ref": "#/$defs/oig_id"},
+        "evidence_refs": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/oig_id"}
+        },
+        "method": {"type": "string"},
+        "observed_at": {"type": "string", "format": "date-time"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

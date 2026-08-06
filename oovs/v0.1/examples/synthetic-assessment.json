@@ -1,0 +1,117 @@
+{
+  "schema_version": "0.1",
+  "oovs_version": "0.1.0",
+  "assessment_id": "oovs-assessment:synthetic-glass-map-001",
+  "assessment_status": "illustrative",
+  "assessment_type": "self_assessment",
+  "assessor": {
+    "role": "Synthetic fixture reviewer",
+    "organisation": "Fictional Example Organisation",
+    "conflicts_disclosed": true,
+    "conflict_notes": "The fixture author and assessor are fictional; this example is not independent validation."
+  },
+  "target": {
+    "type": "workflow",
+    "name": "Synthetic Glass Map claim-review workflow",
+    "owner_role": "Synthetic mission owner",
+    "intended_use": "Demonstrate the OOVS assessment data shape using only fictional public-review material.",
+    "scope": {
+      "included": ["Synthetic planning", "Synthetic provenance", "Synthetic claim review", "Synthetic release and correction"],
+      "excluded": ["Live collection", "Personal data", "Operational action", "External systems"]
+    },
+    "period": {"start": "2026-07-27", "end": "2026-07-27"},
+    "sample_method": "All five nodes, three relationships, and the single fictional claim in the synthetic graph were reviewed.",
+    "high_consequence": false
+  },
+  "results": [
+    {
+      "requirement_ref": "OOVS-v0.1.0-01",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/plan"],
+      "rationale": "The synthetic plan records a fictional purpose, scope, owner, review point, and stop condition.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-02",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/collection-boundary"],
+      "rationale": "The fixture permits only bundled synthetic records and excludes live or personal-data collection.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-03",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/provenance", "../oig/examples/synthetic-mission-graph-0.1.json"],
+      "rationale": "Synthetic source, document, claim, event, action, time, method, and evidence references are traceable.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-04",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/verification-record"],
+      "rationale": "The fictional claim is visibly single-origin, its evidence chain is explicit, and no repetition is counted.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-05",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/confidence-record"],
+      "rationale": "The claim is held at moderate confidence awaiting corroboration, and it triggers review rather than consequential action.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-06",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/reproduction"],
+      "rationale": "The synthetic relationships distinguish observed source linkage, analytic support, and the review action.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-07",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/safety-boundary"],
+      "rationale": "The fixture contains no real person, victim, live case, restricted source, or sensitive personal information.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-08",
+      "status": "not_applicable",
+      "evidence_refs": ["fixture://glass-map/no-ai-declaration"],
+      "rationale": "No AI system collects, transforms, ranks, links, summarises, analyses, or drafts content in this deterministic fixture.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-09",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/release-record"],
+      "rationale": "The synthetic output is TLP:CLEAR, explicitly caveated, and limited to review of a fictional event.",
+      "findings": [],
+      "exceptions": []
+    },
+    {
+      "requirement_ref": "OOVS-v0.1.0-10",
+      "status": "implemented",
+      "evidence_refs": ["fixture://glass-map/review-log"],
+      "rationale": "The fixture records an owner, a separate review action, and a correction path for demonstration purposes.",
+      "findings": [],
+      "exceptions": []
+    }
+  ],
+  "overall_result": "meets_all_applicable",
+  "limitations": [
+    "This is a synthetic schema example, not evidence that an organisation or real workflow meets OOVS.",
+    "The fixture does not test legal authority, live sources, personal data, operational security, scale, or high-consequence decisions.",
+    "A self-authored example cannot demonstrate independent assessor agreement."
+  ],
+  "assessed_at": "2026-08-05",
+  "next_review_at": "2026-09-05",
+  "disclaimer": "An OOVS assessment records a defined scope and result; it is not certification or a determination of legal compliance."
+}

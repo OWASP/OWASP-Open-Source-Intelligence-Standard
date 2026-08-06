@@ -1,0 +1,23 @@
+{
+  "spec_version": "0.1",
+  "id": "OTTM-WEB-001",
+  "name": "Public Web Change Detection",
+  "status": "candidate",
+  "domains": ["web", "document", "timeline"],
+  "mission_uses": ["strategic-warning", "threat-monitoring", "evidence-preservation"],
+  "lifecycle_stages": ["collection", "processing", "analysis"],
+  "inputs": ["publicly accessible web pages", "public archives", "time-stamped snapshots"],
+  "outputs": ["change event", "snapshot reference", "timeline observation"],
+  "reliability": {
+    "validation": ["preserve observation time", "compare independent snapshots", "record transformation method"],
+    "failure_modes": ["dynamic content variance", "archive incompleteness", "time-zone mismatch", "access-dependent rendering"],
+    "source_volatility": "high"
+  },
+  "tool_capability_classes": ["manual review", "web archive", "change-detection service", "API-assisted collection"],
+  "mappings": {
+    "oig_node_types": ["Source", "Document", "Event"],
+    "oig_relationship_types": ["observed_in", "precedes", "derived_from"]
+  },
+  "limitations": ["A page change does not establish author intent.", "Rendered content can vary by location, session state, device, and time."],
+  "references": ["https://www.bellingcat.com/resources/2024/09/24/bellingcat-online-investigations-toolkit/"]
+}

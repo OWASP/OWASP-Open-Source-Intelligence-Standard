@@ -1,0 +1,19 @@
+{
+  "spec_version": "0.1",
+  "id": "OTTM-WEB-999",
+  "name": "Invalid record without limitations",
+  "status": "draft",
+  "domains": ["web"],
+  "mission_uses": ["negative-validation"],
+  "lifecycle_stages": ["collection"],
+  "inputs": ["synthetic input"],
+  "outputs": ["synthetic output"],
+  "reliability": {
+    "validation": ["negative fixture"],
+    "failure_modes": ["intentionally incomplete"],
+    "source_volatility": "low"
+  },
+  "tool_capability_classes": ["manual"],
+  "mappings": {},
+  "references": ["https://example.invalid/negative-fixture"]
+}

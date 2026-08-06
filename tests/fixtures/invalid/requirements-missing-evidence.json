@@ -1,0 +1,40 @@
+{
+  "spec_version": "0.1.0",
+  "release_status": "released",
+  "title": "OWASP OSINT Verification Standard Foundational Requirements",
+  "level": "L1",
+  "canonical_markdown": "standard.md",
+  "requirements": [
+    {
+      "id": "OOVS-v0.1.0-01",
+      "ordinal": 1,
+      "level": "L1",
+      "family": "purpose_and_authority",
+      "title": "Deliberately incomplete requirement",
+      "objective": "Demonstrate that evidence is a mandatory field in every requirement.",
+      "normative_statement": "The negative fixture MUST omit the required evidence field so validation demonstrates an expected schema failure rather than a false pass.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": ["Negative validation runs."],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "assessment": {
+        "procedure": ["Validate this fixture."],
+        "pass_criteria": ["Validation rejects the fixture."],
+        "failure_conditions": ["Validation accepts the fixture."]
+      },
+      "exceptions": [],
+      "test_refs": ["OOVS-v0.1.0-T01"],
+      "references": [
+        {
+          "id": "NEGATIVE_FIXTURE",
+          "title": "Synthetic negative fixture",
+          "url": "https://example.invalid/negative-fixture",
+          "relationship": "No external relationship; test data only."
+        }
+      ],
+      "review_status": "released"
+    }
+  ]
+}
