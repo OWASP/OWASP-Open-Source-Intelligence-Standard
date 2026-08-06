@@ -1,11 +1,10 @@
 # Maintainers and Review Roles
 
-## Project leaders
+## Project leader
 
 - **Manish Tripathy** — `manish.tripathy@owasp.org`
-- **Faiz Ahmed Zaidi** — `faiz.ahmedzaidi@owasp.org`
 
-Project leaders own the OWASP relationship, repository access, release approval, and escalation. The authoritative leader record is the OWASP project page.
+The project leader owns the OWASP relationship, repository access, release approval, and escalation. The authoritative leader record is the OWASP project page.
 
 ## How roles work
 
