@@ -6,7 +6,7 @@
   "status": "released",
   "release_date": "2026-08-05",
   "commit": null,
-  "tag": null,
+  "tag": "v0.1.0",
   "scope": "The OOVS L1 Foundational baseline: ten testable requirements, machine-readable catalogue, acceptance tests, assessment format, external mappings, governance, and validation assets.",
   "runtime": {
     "python": ">=3.10",
