@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For government &amp; defence evaluators — OOVS</title>
+<meta name="description" content="How public-sector and defence evaluators can assess, pilot, and reference the OWASP OSINT Verification Standard, including the adoption ladder and what each stage supports claiming.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="./assets/img/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="./index.html" aria-label="OWASP OOVS, the OSINT Verification Standard, home">
+      <img class="brand__owasp" src="./assets/img/owasp.svg" alt="OWASP" width="26" height="26">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__name">
+        <strong>OOVS</strong>
+        <small>OSINT Verification Standard</small>
+      </span>
+    </a>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span class="menu__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="./index.html">Overview</a>
+      <a href="./requirements.html">The ten requirements</a>
+      <a href="./adoption.html" aria-current="page">For evaluators</a>
+      <a class="btn" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Read the standard</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap hero">
+    <p class="eyebrow">Government &middot; Defence &middot; Critical infrastructure</p>
+    <h1 class="display">For the people<br>who must justify<br>the decision.</h1>
+    <p class="lede">
+      OOVS gives an organisation a published, testable way to demonstrate how an intelligence
+      product was authorised, traced, verified, reviewed, and released &mdash; in terms an auditor,
+      an oversight body, or a court of inquiry can follow.
+    </p>
+  </section>
+
+  <section class="band">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Position</p>
+        <h2>An assurance layer, not another platform.</h2>
+      </div>
+      <div class="reveal">
+        <p>
+          OOVS does not ingest data, host anything, or ask you to replace a system. It sits above
+          whatever you already operate &mdash; in-house, open-source, or commercial &mdash; and
+          describes what a defensible process must be able to show.
+        </p>
+        <p>
+          That distinction matters in procurement. A platform commitment locks you to a vendor. An
+          assurance standard gives you criteria you can apply to any vendor, including the one you
+          already bought, and it remains valid when the tooling changes.
+        </p>
+        <div class="callout">
+          <p>
+            The question OOVS answers is not "which software should we buy?" but "how would we
+            prove this conclusion was sound if we had to?"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Adoption ladder</p>
+      <h2>Each stage supports a specific claim. No stage implies endorsement.</h2>
+      <table class="table">
+        <caption>What an organisation can accurately say at each stage of use</caption>
+        <thead>
+          <tr>
+            <th scope="col">Stage</th>
+            <th scope="col">Evidence involved</th>
+            <th scope="col">Supportable claim</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Evaluation</td><td>Read the standard, run the worked example</td><td>&ldquo;Evaluating OOVS&rdquo;</td></tr>
+          <tr><td>Assessment</td><td>One workflow or product assessed, with recorded scope, period, and evidence</td><td>&ldquo;Assessed against OOVS v0.1.0 for [scope] during [period]&rdquo;</td></tr>
+          <tr><td>Pilot</td><td>Approved trial on synthetic or de-identified material, method published</td><td>&ldquo;Participating in an OOVS pilot&rdquo;</td></tr>
+          <tr><td>Independent implementation</td><td>Reproduced without assistance from the authors, results published</td><td>&ldquo;Implemented the cited version for the stated scope&rdquo;</td></tr>
+          <tr><td>Procurement profile</td><td>Jurisdiction and sector controls, security and accessibility requirements, contract language, assessor method</td><td>A scope-specific procurement reference</td></tr>
+        </tbody>
+      </table>
+      <p class="small" style="margin-top:1.5rem">
+        No stage permits implying endorsement by OWASP, a government, an agency, a court, or a
+        participating reviewer.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band--ink">
+    <div class="wrap">
+      <p class="eyebrow">Evaluation checklist</p>
+      <h2>What serious evaluators ask for.</h2>
+      <div class="cols cols--2" style="margin-top:clamp(2.5rem,6vw,4rem)">
+        <div class="reveal">
+          <h3>Mission and legal authority</h3>
+          <ul class="plain">
+            <li>Defined mission, decision, accountable owner, and authority</li>
+            <li>Jurisdiction and mandate-specific legal analysis</li>
+            <li>Necessity, proportionality, and impact assessment</li>
+            <li>Safeguards for minors, vulnerable people, biometrics, and political activity</li>
+            <li>Due process, correction, redress, oversight, and records management</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Security and operations</h3>
+          <ul class="plain">
+            <li>Access control appropriate to the environment</li>
+            <li>Encryption, key management, audit, monitoring, and incident response</li>
+            <li>Retention, deletion, backup, and continuity</li>
+            <li>Supply-chain and vulnerability evidence</li>
+            <li>Deployment patterns for sovereignty, residency, and disconnected operation</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Analytic assurance</h3>
+          <ul class="plain">
+            <li>Measured provenance completeness and source-origin independence</li>
+            <li>Calibrated uncertainty, with false-link and false-positive rates</li>
+            <li>Independent challenge, reproducibility, and correction propagation</li>
+            <li>Evaluation of any automated component, and enforced human accountability</li>
+            <li>Competence, sampling, assessor consistency, and audit evidence</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3>Interoperability and procurement</h3>
+          <ul class="plain">
+            <li>Field-level mappings to the exchange formats you already use</li>
+            <li>Accessible documentation, including low-bandwidth and offline formats</li>
+            <li>Open licensing, version support, migration, and exit terms</li>
+            <li>Vendor-neutral acceptance criteria, with no platform requirement</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:clamp(2.5rem,6vw,3.5rem);color:var(--ink-70)">
+        OOVS addresses the analytic assurance column directly and gives you the vocabulary for the
+        others. The controls themselves must be validated in your own environment &mdash; a
+        standard cannot certify your infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Pilot pattern</p>
+        <h2>A first trial that produces evidence, not enthusiasm.</h2>
+      </div>
+      <div class="reveal">
+        <p>
+          Use one recurring, low-risk product, and synthetic or approved de-identified material.
+          The aim is a measurement you can defend, not a demonstration.
+        </p>
+        <ol class="set" style="margin-top:2rem">
+          <li class="reveal"><span class="set__num">01</span><span class="set__name">Baseline</span>
+            <div class="set__body"><p>Measure review time, provenance completeness, claim traceability, contradiction detection, corrections issued, and how clearly the product supported the decision.</p></div></li>
+          <li class="reveal"><span class="set__num">02</span><span class="set__name">Intervention</span>
+            <div class="set__body"><p>Apply the standard for six to twelve weeks: the pre-work record, provenance and verification records, a stated confidence basis, a review gate, and the structured result format.</p></div></li>
+          <li class="reveal"><span class="set__num">03</span><span class="set__name">Independent check</span>
+            <div class="set__body"><p>Have someone who did not build the workflow assess the same sample. Disagreement between assessors is a finding about the standard, not a failure of the assessor.</p></div></li>
+          <li class="reveal"><span class="set__num">04</span><span class="set__name">Report</span>
+            <div class="set__body"><p>Publish aggregate method, agreement, exceptions, implementation effort, false links, missed contradictions, and time-to-correction. Never case or operational data.</p></div></li>
+          <li class="reveal"><span class="set__num">05</span><span class="set__name">Stop conditions</span>
+            <div class="set__body"><p>Halt if the pilot creates unapproved collection, exposes sensitive data, or produces a rights impact. A pilot that damages people to prove a process has failed already.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Legitimacy</p>
+        <h2>Not designed around any single sponsor.</h2>
+      </div>
+      <div class="reveal">
+        <p>
+          Government, law-enforcement, and intelligence organisations are welcome adopters and
+          reviewers. They are deliberately not the sole design centre.
+        </p>
+        <p>
+          Civil society, journalism, academia, affected communities, privacy and human-rights
+          specialists, small teams, and international users must all be able to challenge the
+          standard. Broad legitimacy is a control on the standard's quality, not a marketing
+          posture &mdash; a baseline that only large state bodies can implement will not improve
+          practice where most harm actually occurs.
+        </p>
+        <div class="note">
+          <h3>Currently missing, and openly so</h3>
+          <p>
+            No independent assessment has been recorded, no agreement between separate assessors
+            has been measured, and no field deployment has taken place. An evaluator should weigh
+            the standard on its stated criteria and its verifiability &mdash; not on adoption
+            claims, because there are none to make.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__brand">
+      <img class="brand__owasp" src="./assets/img/owasp.svg" alt="OWASP" width="26" height="26">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__name">
+        <strong>OOVS</strong>
+        <small>An OWASP Foundation project &middot; Incubator stage</small>
+      </span>
+    </div>
+
+    <p class="eyebrow">Engage</p>
+    <h2>Reviewers and design partners wanted.</h2>
+    <p style="color:var(--ink-70);max-width:56ch">
+      Particularly from organisations in different jurisdictions, and from privacy, human-rights,
+      records, and oversight backgrounds.
+    </p>
+    <div class="actions">
+      <a class="btn" href="https://www.owasp.community/projects/open-source-intelligence-standard" rel="noopener">OWASP project page</a>
+      <a class="btn btn--ghost" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Repository</a>
+    </div>
+    <div class="legal">
+      <p>OWASP OSINT Verification Standard (OOVS) version 0.1.0, published by the OWASP Open Source Intelligence Standard project. Licensed under CC BY-SA 4.0. OOVS is a voluntary standard: it is not a certification scheme, not legal advice, and not a determination of evidentiary admissibility.</p>
+      <p>OWASP and the OWASP logo are registered trademarks of the OWASP Foundation, Inc. Incubator-stage hosting denotes acceptance, not technical review or endorsement. No endorsement by any government, agency, court, or vendor is claimed or implied.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/site.js" defer></script>
+</body>
+</html>

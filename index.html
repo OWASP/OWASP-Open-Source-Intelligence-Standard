@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OOVS — A standard for defensible open-source intelligence</title>
+<meta name="description" content="The OWASP OSINT Verification Standard makes open-source intelligence auditable: every judgment traceable to its origin, every requirement testable against published criteria, every release tamper-evident.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="./assets/img/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./assets/css/site.css">
+<meta property="og:title" content="OOVS — A standard for defensible open-source intelligence">
+<meta property="og:description" content="Ten testable requirements. One acceptance test each. Every release cryptographically fingerprinted.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="./index.html" aria-label="OWASP OOVS, the OSINT Verification Standard, home">
+      <img class="brand__owasp" src="./assets/img/owasp.svg" alt="OWASP" width="26" height="26">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__name">
+        <strong>OOVS</strong>
+        <small>OSINT Verification Standard</small>
+      </span>
+    </a>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span class="menu__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="./index.html" aria-current="page">Overview</a>
+      <a href="./requirements.html">The ten requirements</a>
+      <a href="./adoption.html">For evaluators</a>
+      <a class="btn" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Read the standard</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ------------------------------------------------------------- hero -->
+  <section class="wrap hero">
+   <div>
+    <p class="eyebrow">OWASP OSINT Verification Standard &middot; Version 0.1.0</p>
+    <h1 class="display">Evidence,<br>not assertion.</h1>
+    <p class="lede">
+      Open-source intelligence now informs decisions that affect liberty, safety, and national
+      security. OOVS is an open standard that makes those decisions defensible &mdash; every
+      judgment traceable to its origin, every requirement testable against published criteria,
+      every release tamper-evident.
+    </p>
+    <div class="actions">
+      <a class="btn" href="./requirements.html">See what it requires</a>
+      <a class="btn btn--ghost" href="./adoption.html">For government &amp; defence</a>
+    </div>
+   </div>
+
+    <figure class="hero__figure">
+      <img src="./assets/img/hero-poster.jpg"
+           srcset="./assets/img/hero-poster.jpg 466w, ./assets/img/hero-poster@2x.jpg 1024w"
+           sizes="(min-width: 62rem) 42vw, min(30rem, 90vw)"
+           width="466" height="700" fetchpriority="high" decoding="async"
+           alt="OOVS overview panel: an analyst reviewing three screens showing source provenance, a corroboration map, and evidence integrity with a SHA-256 file hash marked verified, above five principles — traceable to origin, independently corroborated, accountable judgments, tamper-evident, and corrections that reach everyone.">
+    </figure>
+  </section>
+
+
+
+  <!-- ---------------------------------------------------------- problem -->
+  <section class="band">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">The problem</p>
+        <h2>A confident report and a correct report look identical.</h2>
+      </div>
+      <div class="reveal">
+        <p>
+          Publicly available information is now used to prioritise cyber defence, attribute
+          hostile activity, support safeguarding referrals, document alleged atrocities, and
+          justify consequential action. The professional guidance covering that work is written
+          almost entirely as prose.
+        </p>
+        <p>
+          Prose describes what good practice looks like. It rarely states what evidence would
+          demonstrate it, what sample would test it, or what observation would disprove it. So an
+          organisation can state that it follows a protocol without producing anything a second
+          party could check &mdash; and a reviewer cannot distinguish a disciplined process from a
+          self-assured one.
+        </p>
+        <div class="callout">
+          <p>
+            When the reasoning cannot be inspected, the failure is invisible until it is
+            consequential. Then it is a misidentified person, a wrong attribution, or a decision
+            no one can reconstruct.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------- the four -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">What the standard does</p>
+      <h2>Four questions, answered on the record.</h2>
+      <div class="cols cols--4" style="margin-top:clamp(2.5rem,6vw,4rem)">
+        <div class="pillar reveal">
+          <h3>Where did this come from?</h3>
+          <p>Every material item carries its origin, time, method of collection, and handling
+            history. Originals stay distinguishable from copies, so an error can be found and
+            corrected rather than merely regretted.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Is it independently corroborated?</h3>
+          <p>Independence is judged by counting distinct origins, not mentions. Reposts,
+            syndication, and machine restatements of the same single source do not become
+            confirmation through repetition.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Who is accountable for the judgment?</h3>
+          <p>Observation, inference, assumption, and unknown are stated separately. Automated
+            output is an aid, never a witness, and a named person remains answerable for any
+            consequential determination.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Does the caveat survive contact?</h3>
+          <p>Confidence, limits, handling constraints, and expiry travel with the product to the
+            point of action &mdash; and a correction can reach everyone who received it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- failure set -->
+  <section class="band band--ink">
+    <div class="wrap">
+      <p class="eyebrow">Failure modes closed</p>
+      <h2>Five ways sound-looking intelligence goes wrong.</h2>
+      <p class="lede" style="color:var(--ink-70)">
+        Each requirement in the standard exists because one of these has already caused
+        documented harm.
+      </p>
+      <ol class="set">
+        <li class="reveal">
+          <span class="set__num">01</span>
+          <span class="set__name">Undecidable observation</span>
+          <div class="set__body"><p>No one can establish what was actually seen, from where, or
+            how it changed on the way to the report. Correction becomes impossible, because the
+            affected material cannot be located.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="set__num">02</span>
+          <span class="set__name">Amplification laundering</span>
+          <div class="set__body"><p>One origin travels through many apparently independent
+            accounts. Counting mentions instead of origins converts a single unverified claim into
+            apparent consensus &mdash; the mechanism behind some of the best-known
+            misidentifications on record.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="set__num">03</span>
+          <span class="set__name">Signal overtrust</span>
+          <div class="set__body"><p>Embedded metadata is forgeable and routinely stripped.
+            A cryptographic hash proves bytes are unchanged, not that content is true. Provenance
+            credentials record assertions about creation, not whether the depicted event happened.
+            Detectors degrade badly outside their test conditions.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="set__num">04</span>
+          <span class="set__name">Automation laundering</span>
+          <div class="set__body"><p>An automated system restates its own input in fluent,
+            confident prose, and the fluency is mistaken for corroboration. Under this standard,
+            machine output can never corroborate the material it was derived from.</p></div>
+        </li>
+        <li class="reveal">
+          <span class="set__num">05</span>
+          <span class="set__name">Dissemination decay</span>
+          <div class="set__body"><p>Assurance achieved during analysis is lost at release:
+            caveats dropped in summary, a lead retold as a finding, distribution beyond
+            need-to-know, and no route to reach recipients with a correction.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- self-verifying -->
+  <section class="band">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Assurance of the standard itself</p>
+        <h2>A standard that tests itself.</h2>
+      </div>
+      <div class="reveal">
+        <p>
+          Most standards are a document. This one is a document <em>and</em> a structured,
+          machine-checkable record of the same requirements &mdash; and automated checks refuse to
+          publish if the two ever disagree. A requirement cannot be quietly reworded in one place
+          and left stale in the other.
+        </p>
+        <p>
+          Every published version is fingerprinted file by file. Anyone can confirm that the copy
+          they hold is byte-for-byte the copy that was released, which means an undisclosed change
+          is detectable by a third party rather than a matter of trust.
+        </p>
+        <p>
+          Requirements are also adversarially tested: deliberately faulty records are kept on file
+          and the checks must reject each one <em>for the stated reason</em>. A test suite that
+          only ever passes proves nothing.
+        </p>
+        <div class="note">
+          <h3>Why this matters for procurement</h3>
+          <p>
+            A conformance claim is only as good as the specification behind it. If the
+            specification can drift, every downstream audit inherits the drift. Fingerprinted
+            releases and enforced agreement between the human and machine forms mean an assessment
+            can be tied to an exact, verifiable version of the rules.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------- doctrine -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Grounding</p>
+      <h2>Built on established doctrine, not invented from scratch.</h2>
+      <p style="margin-top:1.5rem;color:var(--ink-70);max-width:60ch">
+        Every requirement cites public guidance that practitioners and oversight bodies already
+        recognise. These relationships are stated conservatively: <strong>related to</strong>, not
+        equivalent to, certified against, or compliant with.
+      </p>
+      <table class="table table--fixed">
+        <caption>Informative relationships to existing public guidance</caption>
+        <thead>
+          <tr><th scope="col">Source</th><th scope="col">What it establishes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Berkeley Protocol on Digital Open Source Investigations</td><td>International minimum professional and ethical standards for identifying, collecting, preserving, verifying, and analysing digital open-source information.</td></tr>
+          <tr><td>ICD 203 &mdash; Analytic Standards</td><td>Separation of information from judgment, expression of uncertainty, consideration of alternatives, and logical argumentation.</td></tr>
+          <tr><td>ICD 206 &mdash; Sourcing Requirements</td><td>Sourcing and source description for disseminated analytic products.</td></tr>
+          <tr><td>W3C PROV</td><td>A general model for provenance in terms of entities, activities, and agents.</td></tr>
+          <tr><td>NIST AI Risk Management Framework</td><td>Voluntary structure for governing, mapping, measuring, and managing AI risk.</td></tr>
+          <tr><td>EU AI Act &amp; Law Enforcement Directive</td><td>Binding obligations within their own scope; treated as jurisdictional profiles, never as global defaults.</td></tr>
+          <tr><td>STIX / TAXII, CASE / UCO, MISP, OpenCTI</td><td>Established representation and exchange of threat and investigative information, mapped rather than replaced.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------------- audience -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Who it is for</p>
+      <h2>Written for the people who carry the consequence.</h2>
+      <div class="cols cols--2" style="margin-top:clamp(2.5rem,6vw,4rem)">
+        <div class="pillar reveal">
+          <h3>Government &amp; defence</h3>
+          <p>Vendor-neutral acceptance criteria you can put in a requirement document. A
+            jurisdiction-neutral core with profiles for local law, rather than one country's rules
+            exported as universal. Human accountability mandated for high-consequence
+            determinations.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Critical infrastructure &amp; industry</h3>
+          <p>A common language for judging the quality of intelligence you buy, receive, or
+            produce &mdash; independent of which platform produced it, and usable alongside systems
+            you already run.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Oversight, legal &amp; policy</h3>
+          <p>Scoped, portable assessment results with an outcome derived mechanically from the
+            evidence, so a favourable summary cannot be asserted over unfavourable detail.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3>Journalism, research &amp; civil society</h3>
+          <p>The same baseline a state body would apply, written so that a two-person team can
+            implement it with lightweight records and an external challenger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------ scope -->
+  <section class="band band--ink">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Scope</p>
+        <h2>What this is not.</h2>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--ink-70)">
+          Precision about limits is part of the assurance. A standard that overstates itself
+          cannot be used to check anything.
+        </p>
+        <ul class="plain">
+          <li>Not a certification or accreditation scheme. Assessment records a scope and a result; it does not issue a mark.</li>
+          <li>Not a determination of legal compliance or of whether evidence is admissible.</li>
+          <li>Not endorsed by any government, agency, court, or vendor, and no such endorsement is implied.</li>
+          <li>Not an intelligence platform, and not a replacement for one. It is the assurance layer around whatever you already use.</li>
+          <li>Not a substitute for applicable law, professional training, or organisational policy.</li>
+        </ul>
+        <p class="small" style="margin-top:2rem">
+          The project is hosted by the OWASP Foundation at Incubator stage. That denotes
+          acceptance and hosting &mdash; not technical review or endorsement of the content by the
+          Foundation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------- status -->
+  <section class="band">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Status &amp; naming</p>
+        <h2>Released, and openly incomplete.</h2>
+        <p class="small" style="margin-top:1.5rem">
+          One note on names. <strong>OOVS</strong> is the OWASP OSINT Verification
+          Standard &mdash; the requirements on this site. It is published by the OWASP
+          project named <strong>Open Source Intelligence Standard</strong>, which also
+          covers supporting work such as technique records and testing scenarios.
+          Requirement identifiers carry the OOVS prefix, so citations stay unambiguous.
+        </p>
+      </div>
+      <div class="reveal">
+        <p>
+          <strong>Version 0.1.0 is published</strong> under a Creative Commons
+          Attribution-ShareAlike licence: ten requirements, an acceptance test bound to each, a
+          portable format for recording results, a worked example, and the automated checks that
+          keep the whole thing honest.
+        </p>
+        <p>
+          What has not happened yet is stated as plainly as what has. There is no independent
+          assessment on record, no measured agreement between separate assessors, and no field
+          deployment. Those are the next milestones, and the results will be published whether or
+          not they are flattering.
+        </p>
+        <table class="table">
+          <thead><tr><th scope="col">Stage</th><th scope="col">State</th></tr></thead>
+          <tbody>
+            <tr><td>Ten requirements, tests, result format</td><td>Published in v0.1.0</td></tr>
+            <tr><td>Assessor and sampling guidance</td><td>In progress</td></tr>
+            <tr><td>Agreement measured between independent assessors</td><td>Planned, protocol pre-registered</td></tr>
+            <tr><td>Reproducible end-to-end reference exercise</td><td>Planned</td></tr>
+            <tr><td>Jurisdictional profiles with legal specialists</td><td>Planned</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- --------------------------------------------------------------- footer -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__brand">
+      <img class="brand__owasp" src="./assets/img/owasp.svg" alt="OWASP" width="26" height="26">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__name">
+        <strong>OOVS</strong>
+        <small>An OWASP Foundation project &middot; Incubator stage</small>
+      </span>
+    </div>
+
+    <p class="eyebrow">Participate</p>
+    <h2>The next thing this needs is scrutiny.</h2>
+    <p style="color:var(--ink-70);max-width:56ch">
+      The standard improves fastest when someone applies it and reports where it was ambiguous,
+      impractical, or wrong. Reviewers from different organisations, regions, and legal contexts
+      are especially valuable.
+    </p>
+    <div class="actions">
+      <a class="btn" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Read the standard</a>
+      <a class="btn btn--ghost" href="https://www.owasp.community/projects/open-source-intelligence-standard" rel="noopener">OWASP project page</a>
+    </div>
+
+    <div class="foot__grid">
+      <div>
+        <h4>The standard</h4>
+        <ul>
+          <li><a href="./requirements.html">The ten requirements</a></li>
+          <li><a href="./adoption.html">For evaluators</a></li>
+          <li><a href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Repository</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Official pages</h4>
+        <ul>
+          <li><a href="https://www.owasp.community/projects/open-source-intelligence-standard" rel="noopener">OWASP project page</a></li>
+          <li><a href="https://owasp.org/" rel="noopener">OWASP Foundation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="https://www.ohchr.org/sites/default/files/2022-04/OHCHR_BerkeleyProtocol.pdf" rel="noopener">Berkeley Protocol</a></li>
+          <li><a href="https://www.dni.gov/files/documents/ICD/ICD-203.pdf" rel="noopener">ICD 203</a></li>
+          <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="noopener">NIST AI RMF</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal">
+      <p>
+        OWASP OSINT Verification Standard (OOVS) version 0.1.0, published by the OWASP Open Source Intelligence Standard project. Content licensed under
+        Creative Commons Attribution-ShareAlike 4.0 International.
+      </p>
+      <p>
+        OWASP and the OWASP logo are registered trademarks of the OWASP Foundation, Inc. This site
+        describes an OWASP Foundation project at Incubator stage; hosting does not constitute
+        review or endorsement of content. Referenced third-party standards and frameworks are
+        cited as prior art and their publishers have not reviewed this work.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/site.js" defer></script>
+</body>
+</html>

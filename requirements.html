@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The ten requirements — OOVS</title>
+<meta name="description" content="The ten foundational requirements of the OWASP OSINT Verification Standard, in plain language: what each one requires, and how an assessor checks it.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="./assets/img/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="./index.html" aria-label="OWASP OOVS, the OSINT Verification Standard, home">
+      <img class="brand__owasp" src="./assets/img/owasp.svg" alt="OWASP" width="26" height="26">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__name">
+        <strong>OOVS</strong>
+        <small>OSINT Verification Standard</small>
+      </span>
+    </a>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+      <span class="menu__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="./index.html">Overview</a>
+      <a href="./requirements.html" aria-current="page">The ten requirements</a>
+      <a href="./adoption.html">For evaluators</a>
+      <a class="btn" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Read the standard</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="wrap hero">
+    <p class="eyebrow">Version 0.1.0 &middot; Foundational baseline</p>
+    <h1 class="display">The ten<br>requirements.</h1>
+    <p class="lede">
+      Each one states an obligation, the evidence that demonstrates it, how an assessor tests it,
+      and what counts as failure. Nothing here depends on a particular tool, vendor, or platform.
+    </p>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">How assessment works</p>
+      <h2>Two things can be assessed. Four results are possible.</h2>
+      <div class="cols cols--2" style="margin-top:clamp(2.5rem,6vw,4rem)">
+        <div class="reveal">
+          <p>
+            An assessment covers either a defined <strong>workflow</strong> or a defined
+            <strong>intelligence product</strong> &mdash; never a whole organisation, and never a
+            tool in the abstract. Scope, time period, and sampling method are recorded with the
+            result, so a narrow assessment cannot later be presented as a general one.
+          </p>
+          <p>
+            Each requirement is recorded as met, partially met, not met, or not applicable.
+            <em>Not applicable</em> is disciplined: it requires an objectively missing
+            precondition. Cost, inconvenience, and absence of evidence are explicitly invalid
+            grounds.
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="note" style="margin-top:0">
+            <h3>The outcome is calculated, not claimed</h3>
+            <p>
+              An overall result of <em>meets all applicable requirements</em> holds only when every
+              applicable requirement is fully met. Any other combination produces
+              <em>does not meet</em>. The summary is derived from the detail mechanically, which
+              removes the room for a favourable headline over unfavourable findings.
+            </p>
+            <p>
+              Self-assessment and independent assessment are always distinguished on the record.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">The baseline</p>
+      <h2>What every requirement asks.</h2>
+      <ol class="set">
+
+        <li class="reveal">
+          <span class="set__num">01</span>
+          <span class="set__name">Authorised purpose and proportionality</span>
+          <div class="set__body">
+            <p>Before material collection begins, record the decision it serves, the accountable
+              owner, the authority relied on, the necessity and expected benefit, the foreseeable
+              harm, the less intrusive alternatives considered, and the point at which the work
+              stops or escalates.</p>
+            <p class="set__meta">Fails when: work begins with no recorded purpose or owner, or continues after authority becomes unclear.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">02</span>
+          <span class="set__name">Collection boundary and minimisation</span>
+          <div class="set__body">
+            <p>Define and enforce limits on sources, techniques, fields, access, and time.
+              Minimise incidental and sensitive data. Never bypass access controls, use
+              credentials without authority, or induce disclosure by deception. Public
+              availability alone is not authority to process.</p>
+            <p class="set__meta">Fails when: collection exceeds approved boundaries, or unnecessary sensitive data is retained.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">03</span>
+          <span class="set__name">Source provenance and integrity</span>
+          <div class="set__body">
+            <p>Every material item records where it came from, when it was observed, who or what
+              collected it, how it was acquired, whether it is original or derived, and what was
+              changed. Integrity mechanisms are used where appropriate &mdash; and never described
+              as proof that content is true.</p>
+            <p class="set__meta">Fails when: a claim cannot be traced back to an observation, or a copy is presented as an original.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">04</span>
+          <span class="set__name">Source and claim assessment</span>
+          <div class="set__body">
+            <p>Judge the reliability of a source separately from the credibility of the specific
+              claim. Where apparent corroboration affects a decision, trace shared origins far
+              enough to avoid counting reposts, quotations, syndicated reporting, or machine
+              restatements as independent support.</p>
+            <p class="set__meta">Fails when: repetition of one origin is counted as corroboration, or a source's reputation substitutes for assessing the claim.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">05</span>
+          <span class="set__name">Corroboration and confidence</span>
+          <div class="set__body">
+            <p>State confidence and the basis for it. Scale verification depth to the consequence
+              of being wrong. Where sufficient corroboration is unavailable, label the claim
+              accordingly &mdash; and do not let it be the sole basis for consequential action
+              outside a documented emergency process.</p>
+            <p class="set__meta">Deliberately sets no universal source count: two weak reports can be less probative than one strong primary record.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">06</span>
+          <span class="set__name">Analytic transparency and reproducibility</span>
+          <div class="set__body">
+            <p>Distinguish what was observed from what was inferred, assumed, considered as an
+              alternative, or remains unknown. Record methods, selection criteria, and exclusions
+              well enough that a competent authorised reviewer can reconstruct the reasoning
+              without exposing sensitive material publicly.</p>
+            <p class="set__meta">Fails when: fact and inference are blurred, or a reviewer cannot reconstruct a material judgment.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">07</span>
+          <span class="set__name">Rights, privacy, and safeguarding</span>
+          <div class="set__body">
+            <p>Identify the legal, policy, contractual, human-rights, records, and safeguarding
+              obligations that actually apply in your context, then implement proportionate
+              minimisation, access control, retention and deletion, accuracy review, and a route
+              to correction or redress. High-consequence use receives documented specialist
+              review.</p>
+            <p class="set__meta">Fails when: controls exist on paper only, or a known error cannot be corrected downstream.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">08</span>
+          <span class="set__name">AI and automation assurance</span>
+          <div class="set__body">
+            <p>Treat automated output as an unverified aid until it is validated against
+              traceable evidence. Record the system, its configuration, the provenance of its
+              inputs, the evaluation performed, its known limitations, and the accountable human
+              reviewer. Machine output never corroborates its own inputs, and never makes an
+              unreviewed high-consequence determination.</p>
+            <p class="set__meta">May be marked not applicable only where no automated system materially participates.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">09</span>
+          <span class="set__name">Dissemination and action controls</span>
+          <div class="set__body">
+            <p>Every product identifies its intended decision, audience, confidence, caveats,
+              handling constraints, validity period, and release authority. Distinguish an
+              allegation, a lead, an assessment, and a verified finding. Maintain a route to
+              withdraw or correct material already distributed.</p>
+            <p class="set__meta">Fails when: caveats disappear downstream, a lead is presented as a finding, or a correction cannot reach known recipients.</p>
+          </div>
+        </li>
+
+        <li class="reveal">
+          <span class="set__num">10</span>
+          <span class="set__name">Governance, audit, and improvement</span>
+          <div class="set__body">
+            <p>Assign accountable roles, set competence expectations, maintain a challenge route
+              proportionate to risk, review controls periodically, and record incidents, errors,
+              corrections, and the improvements that followed. High-consequence release approval
+              cannot rest solely with whoever produced the judgment.</p>
+            <p class="set__meta">Small teams may use an external or cross-team challenger; independence is judged functionally, not structurally.</p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band--ink">
+    <div class="wrap cols cols--aside">
+      <div>
+        <p class="eyebrow">Design choices</p>
+        <h2>What was deliberately rejected.</h2>
+      </div>
+      <div class="reveal">
+        <p style="color:var(--ink-70)">
+          Several conventional approaches were considered and turned down. Each appears somewhere
+          in current practice.
+        </p>
+        <table class="table">
+          <thead><tr><th scope="col">Rejected</th><th scope="col">Because</th></tr></thead>
+          <tbody>
+            <tr><td>Tiers by audience &mdash; journalist, enterprise, state</td><td>Ties safeguards to identity rather than risk. A two-person team can take a high-consequence decision.</td></tr>
+            <tr><td>A fixed number of sources</td><td>Two weak reports may be less probative than one strong primary record, and many reports can share a single origin.</td></tr>
+            <tr><td>A mandatory handling label on every product</td><td>Handling schemes are community instruments. A universal mandate misstates their function and displaces neither law nor contract.</td></tr>
+            <tr><td>Treating a hash or credential as proof of authenticity</td><td>It establishes integrity or an assertion, never the truth of what is depicted.</td></tr>
+            <tr><td>Encoding one jurisdiction's rules as global</td><td>Produces obligations that are simply wrong outside that jurisdiction.</td></tr>
+            <tr><td>Certification in the first release</td><td>Requires assessor competence rules, impartiality, sampling methodology, appeals, surveillance, and accreditation. None of that exists yet, and a mark without it degrades the meaning of assurance.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__brand">
+      <img class="brand__owasp" src="./assets/img/owasp.svg" alt="OWASP" width="26" height="26">
+      <span class="brand__rule" aria-hidden="true"></span>
+      <span class="brand__name">
+        <strong>OOVS</strong>
+        <small>An OWASP Foundation project &middot; Incubator stage</small>
+      </span>
+    </div>
+
+    <p class="eyebrow">Next</p>
+    <h2>Apply it, then tell us where it broke.</h2>
+    <p style="color:var(--ink-70);max-width:56ch">
+      The most useful contribution is an assessment of real work, with a note on any requirement
+      that two people read differently.
+    </p>
+    <div class="actions">
+      <a class="btn" href="./adoption.html">For evaluators</a>
+      <a class="btn btn--ghost" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">Full normative text</a>
+      <a class="btn btn--ghost" href="https://www.owasp.community/projects/open-source-intelligence-standard" rel="noopener">OWASP project page</a>
+    </div>
+    <div class="legal">
+      <p>OWASP OSINT Verification Standard (OOVS) version 0.1.0, published by the OWASP Open Source Intelligence Standard project. Licensed under CC BY-SA 4.0. This page is a plain-language summary; the repository holds the normative text.</p>
+      <p>OWASP and the OWASP logo are registered trademarks of the OWASP Foundation, Inc. Incubator-stage hosting does not constitute review or endorsement of content.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="./assets/js/site.js" defer></script>
+</body>
+</html>
