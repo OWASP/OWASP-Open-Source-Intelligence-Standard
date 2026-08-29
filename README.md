@@ -68,22 +68,61 @@ root of your GitHub domain.
 
 ### Option B — the OWASP project repository
 
-Copy these files into a `docs/` folder on the OWASP repository and enable Pages
-from `main` / `docs`. Live at
-`https://owasp.github.io/OWASP-Open-Source-Intelligence-Standard/`.
+This is how the OWASP copy is actually published. The site lives on an orphan
+`gh-pages` branch, not in `docs/`: `docs/` already holds the project's own
+documentation, so serving Pages from there would drop an `index.html` on top of
+it and let Jekyll process the Markdown.
 
-This needs repository admin rights, and OWASP staff have said Pages sites will
-have to migrate to the new CMS later. Option A avoids both problems.
+```sh
+git clone --depth 1 https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard.git
+cd OWASP-Open-Source-Intelligence-Standard
+git checkout --orphan gh-pages
+git rm -r --cached .
+find . -mindepth 1 -maxdepth 1 -not -name '.git' -exec rm -rf {} +
+rsync -a --exclude '.git' ../oovs-site/ ./
+git add -A && git commit -m "Publish the public site on gh-pages"
+git push -u origin gh-pages
+```
+
+Then: **Settings → Pages → Source: Deploy from a branch → `gh-pages` / `root`.**
+This keeps `main` free of website files.
+
+The OWASP organisation has a verified Pages domain, so the canonical URL is
+`https://owasp.org/OWASP-Open-Source-Intelligence-Standard/`. The
+`owasp.github.io` address redirects to it.
+
+Needs repository admin rights. OWASP staff have said Pages sites will have to
+migrate to the new CMS eventually.
 
 All internal links are relative, so the site works from a subdirectory without
 changes.
 
+## Cache: bump the asset version when you change CSS or JS
+
+GitHub Pages serves the HTML with `max-age=600` but CSS and JS with
+`max-age=14400`, four hours. A deploy that changes both therefore lands new
+markup against a stale stylesheet, which looks broken rather than merely old.
+
+Both are requested with a version token to avoid this:
+
+```html
+<link rel="stylesheet" href="./assets/css/site.css?v=20260829">
+<script src="./assets/js/site.js?v=20260829" defer></script>
+```
+
+Bump the token in all three pages whenever you edit `site.css` or `site.js`. The
+changed URL misses both the CDN and browser caches, so the update is picked up
+immediately instead of in four hours.
+
 ## Keeping it accurate
 
-Every number on the site is verifiable from the released standard: ten
-requirements, ten acceptance tests, eight automated check families, and
-twenty-three fingerprinted files per release. If a release changes those, update
-the `.stats` block in `index.html`.
+Every claim on the site is verifiable from the released standard. Where counts
+appear in prose, check them against the release before changing the version
+number in the footer.
+
+External references are cited as landing pages, not as direct file paths.
+A deep link to a PDF broke once already when the publisher reorganised its
+files; landing pages survive that.
 
 Deliberate omissions, which should stay omitted until they are true: adoption
 claims, endorsement claims, certification language, and named external
