@@ -8,6 +8,8 @@
 
 <h3>Open-source intelligence now informs decisions that affect liberty, safety, and national security.<br>OOVS is an open standard that makes those decisions defensible.</h3>
 
+<p><i>Every judgment traceable to its origin · every requirement testable against published criteria · AI output never mistaken for evidence</i></p>
+
 <p>
 <a href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/releases/latest"><img src="https://img.shields.io/github/v/release/OWASP/OWASP-Open-Source-Intelligence-Standard?style=for-the-badge&logo=github&logoColor=white&labelColor=000000&color=1c1c1c&label=RELEASE" alt="Latest release"></a>
 <a href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/actions/workflows/validate-structured-assets.yml"><img src="https://img.shields.io/github/actions/workflow/status/OWASP/OWASP-Open-Source-Intelligence-Standard/validate-structured-assets.yml?branch=main&style=for-the-badge&logo=githubactions&logoColor=white&labelColor=000000&color=1c1c1c&label=VALIDATION" alt="Validation status"></a>
@@ -37,10 +39,10 @@ cannot answer four questions under scrutiny:
 
 |  | Question | What OOVS requires |
 | :--: | --- | --- |
-| **01** | Where did this come from? | Provenance recorded as part of the record, not as metadata beside it |
-| **02** | Who decided it was credible? | A named, accountable judgment with stated confidence |
-| **03** | Would another analyst agree? | A method reproducible from the published trace |
-| **04** | Has the record changed since? | Per-release SHA-256 fingerprints, so alteration is detectable |
+| **01** | Where did this come from? | Origin, time, method, and handling history travel with every item, and originals stay distinguishable from copies |
+| **02** | Is it independently corroborated? | Independence counted by distinct origins, not mentions. Reposts and machine restatements of one source never become confirmation through repetition |
+| **03** | Who is accountable for the judgment? | Observation, inference, assumption, and unknown stated separately. Automated output is an aid, never a witness, and a named person stays answerable |
+| **04** | Does the caveat survive contact? | Confidence, limits, and handling constraints travel to the point of action, and a correction can reach everyone who received the product |
 
 </div>
 
@@ -50,7 +52,7 @@ cannot answer four questions under scrutiny:
 
 <sub><b>What the standard asks of a working analyst.</b><br>
 Provenance traced to origin · corroboration established independently · judgments attributed to a named person<br>
-integrity fingerprinted so alteration shows · corrections that reach everyone who saw the original</sub>
+releases hashed so a recipient can check their copy · corrections that reach everyone who saw the original</sub>
 
 </div>
 
