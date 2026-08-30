@@ -280,11 +280,54 @@ strong { font-weight: 600; }
 }
 .btn:hover { opacity: 0.78; }
 
+/* Marks are painted through a mask rather than placed as images, so the glyph
+   takes currentColor and is correct on a filled pill, an outlined pill, and in
+   either colour scheme without a filter for each case. */
+.btn__mark {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  flex: none;
+  background-color: currentColor;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.btn__mark--owasp {
+  -webkit-mask-image: url("../img/owasp.svg");
+  mask-image: url("../img/owasp.svg");
+}
+.btn__mark--github {
+  -webkit-mask-image: url("../img/github.svg");
+  mask-image: url("../img/github.svg");
+}
+
 .btn--ghost { background: transparent; color: var(--ink); }
 .band--ink .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 .band--ink .btn--ghost { background: transparent; color: var(--paper); }
 
 .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
+
+/* The two pills carry provenance, so the route into the standard itself sits
+   below them as plain links: present and reachable, without competing with the
+   credibility signals for attention. */
+.hero__onward {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.9375rem;
+}
+.hero__onward a {
+  color: var(--ink-70);
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1px;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.hero__onward a::after { content: " \2192"; }
+.hero__onward a:hover { color: var(--ink); border-color: var(--ink); }
 
 /* -------------------------------------------------------------------- hero */
 
@@ -298,9 +341,26 @@ strong { font-weight: 600; }
   gap: clamp(2.5rem, 6vw, 4.5rem);
   padding-block: clamp(2rem, 5vh, 3.5rem) clamp(2.5rem, 6vh, 4rem);
 }
+/* Two columns only where there is something to put in the second one. The inner
+   pages place their eyebrow, heading, and lede directly in the hero, so an
+   unscoped rule dealt those three into grid cells: the heading squeezed into the
+   narrow right column and broke a word per line, while the eyebrow and lede sat
+   stranded on the left with most of the screen empty. */
 @media (min-width: 62rem) {
-  .hero { grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); align-items: center; }
+  .hero--split { grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); align-items: center; }
 }
+
+/* A page header rather than a landing screen. Holding a full viewport open for
+   a heading and two lines of copy leaves most of it blank, and pushes the
+   content that explains the page below the fold for no gain. The eyebrow and
+   lede carry their own margins, so the grid gap is removed here. */
+.hero--text {
+  min-height: 0;
+  gap: 0;
+  padding-block: clamp(3rem, 9vh, 5.5rem) clamp(2.5rem, 6vh, 4rem);
+}
+.hero--text .display { max-width: 28ch; }
+.hero--text .lede { max-width: 58ch; }
 
 /* The full poster, never cropped: object-fit contain scales it inside the box
    so every edge of the artwork stays visible at any viewport. */
@@ -506,6 +566,38 @@ strong { font-weight: 600; }
 .foot__grid li { margin-bottom: 0.625rem; }
 .foot__grid a { color: rgba(255,255,255,.82); font-size: 0.9375rem; border-bottom: 1px solid rgba(255,255,255,.28); padding-bottom: 1px; }
 .foot__grid a:hover { color: #fff; border-color: #fff; }
+
+/* -- accountability ------------------------------------------------------- */
+/* Standards are expected to say who edits them, so this is a provenance
+   statement rather than a credit: named person, stated role, institutional
+   address. It sits in the footer because that is where a reader looks for who
+   stands behind a document, and deliberately not in the hero, where a personal
+   name would read as promotion and weaken the institutional framing. */
+.foot__lead {
+  display: grid;
+  gap: 0.75rem 2.5rem;
+  grid-template-columns: 1fr;
+  margin-top: clamp(2.75rem, 6vw, 3.75rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 48rem) {
+  .foot__lead { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: baseline; }
+}
+.foot__lead h4 {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-55);
+  font-weight: 400;
+  margin: 0;
+}
+.foot__lead-name { font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 0.375rem; }
+.foot__lead-name span { font-weight: 400; color: var(--ink-70); letter-spacing: 0; }
+.foot__lead-links { display: flex; flex-wrap: wrap; gap: 0.375rem 1.5rem; margin: 0; font-size: 0.875rem; }
+.foot__lead-links a { color: var(--ink-70); border-bottom: 1px solid var(--rule-strong); padding-bottom: 1px; }
+.foot__lead-links a:hover { color: var(--paper); border-color: var(--paper); }
 /* Two dense grey paragraphs at the same weight gave five undifferentiated
    lines of fine print. Split by job instead: a scannable record line, then the
    notices set smaller and looser so they are legible without competing. */

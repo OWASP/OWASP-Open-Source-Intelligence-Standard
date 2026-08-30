@@ -7,10 +7,105 @@
 <meta name="description" content="The OWASP OSINT Verification Standard makes open-source intelligence auditable: every judgment traceable to its origin, every requirement testable against published criteria, every release tamper-evident.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="./assets/img/mark.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./assets/css/site.css?v=20260829">
+<link rel="stylesheet" href="./assets/css/site.css?v=20260829b">
+<!-- The same files are served from two hosts. Canonical points every copy at the
+     owasp.org address so the two do not compete as duplicates and all ranking
+     signals consolidate on the authoritative domain. -->
+<link rel="canonical" href="https://owasp.org/OWASP-Open-Source-Intelligence-Standard/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:site_name" content="OWASP OSINT Verification Standard">
+<meta property="og:locale" content="en_GB">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://owasp.org/OWASP-Open-Source-Intelligence-Standard/">
 <meta property="og:title" content="OOVS — A standard for defensible open-source intelligence">
 <meta property="og:description" content="Ten testable requirements. One acceptance test each. Every release cryptographically fingerprinted.">
-<meta property="og:type" content="website">
+<meta property="og:image" content="https://owasp.org/OWASP-Open-Source-Intelligence-Standard/assets/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OOVS, the OWASP OSINT Verification Standard. Evidence, not assertion. Version 0.1.0.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OOVS — A standard for defensible open-source intelligence">
+<meta name="twitter:description" content="Ten testable requirements. One acceptance test each. Every release cryptographically fingerprinted.">
+<meta name="twitter:image" content="https://owasp.org/OWASP-Open-Source-Intelligence-Standard/assets/img/og-card.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/#project",
+      "name": "OWASP Open Source Intelligence Standard",
+      "alternateName": "OOSIS",
+      "url": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/",
+      "description": "A community-led OWASP Foundation programme for safer, more testable, and more interoperable open-source intelligence. Its normative core is the OWASP OSINT Verification Standard (OOVS).",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "OWASP Foundation",
+        "url": "https://owasp.org/"
+      },
+      "sameAs": [
+        "https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard",
+        "https://www.owasp.community/projects/open-source-intelligence-standard"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/#website",
+      "url": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/",
+      "name": "OWASP OSINT Verification Standard",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/#project" }
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/#standard",
+      "name": "OWASP OSINT Verification Standard (OOVS) version 0.1.0",
+      "alternateName": "OOVS v0.1.0",
+      "headline": "A standard for defensible open-source intelligence",
+      "description": "OOVS is an open standard that makes open-source intelligence auditable: every judgment traceable to its origin, every requirement testable against published criteria, every release tamper-evident.",
+      "url": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/",
+      "version": "0.1.0",
+      "inLanguage": "en",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "isAccessibleForFree": true,
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Government, defence, oversight bodies, critical infrastructure, journalism, and human-rights investigators"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Open-source intelligence" },
+        { "@type": "Thing", "name": "OSINT verification" },
+        { "@type": "Thing", "name": "Evidence provenance" },
+        { "@type": "Thing", "name": "Analytic transparency" }
+      ],
+      "publisher": { "@id": "https://owasp.org/OWASP-Open-Source-Intelligence-Standard/#project" },
+      "author": {
+        "@type": "Person",
+        "name": "Manish Tripathy",
+        "jobTitle": "Project leader",
+        "url": "https://github.com/usualdork"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Berkeley Protocol on Digital Open Source Investigations",
+          "url": "https://humanrights.berkeley.edu/publications/berkeley-protocol-on-digital-open-source-investigations/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ICD 203: Analytic Standards",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-203.pdf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,7 +135,7 @@
 <main id="main">
 
   <!-- ------------------------------------------------------------- hero -->
-  <section class="wrap hero">
+  <section class="wrap hero hero--split">
    <div>
     <p class="eyebrow">OWASP OSINT Verification Standard &middot; Version 0.1.0</p>
     <h1 class="display">Evidence,<br>not assertion.</h1>
@@ -51,9 +146,17 @@
       every release tamper-evident.
     </p>
     <div class="actions">
-      <a class="btn" href="./requirements.html">See what it requires</a>
-      <a class="btn btn--ghost" href="./adoption.html">For government &amp; defence</a>
+      <a class="btn" href="https://www.owasp.community/projects/open-source-intelligence-standard" rel="noopener">
+        <span class="btn__mark btn__mark--owasp" aria-hidden="true"></span>OWASP project page
+      </a>
+      <a class="btn btn--ghost" href="https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/" rel="noopener">
+        <span class="btn__mark btn__mark--github" aria-hidden="true"></span>GitHub repository
+      </a>
     </div>
+    <p class="hero__onward">
+      <a href="./requirements.html">See what it requires</a>
+      <a href="./adoption.html">For government &amp; defence</a>
+    </p>
    </div>
 
     <figure class="hero__figure">
@@ -404,6 +507,16 @@
       </div>
     </div>
 
+    <div class="foot__lead">
+      <h4>Project leadership</h4>
+      <div>
+        <p class="foot__lead-name">Manish Tripathy <span>&mdash; Project leader</span></p>
+        <p class="foot__lead-links">
+          <a href="mailto:manish.tripathy@owasp.org">manish.tripathy@owasp.org</a>
+          <a href="https://github.com/usualdork" rel="noopener">github.com/usualdork</a>
+        </p>
+      </div>
+    </div>
     <div class="legal">
       <p class="legal__meta">
         OOVS v0.1.0 &middot; CC BY-SA 4.0 &middot; An OWASP Foundation project at Incubator stage
@@ -418,6 +531,6 @@
   </div>
 </footer>
 
-<script src="./assets/js/site.js?v=20260829" defer></script>
+<script src="./assets/js/site.js?v=20260829b" defer></script>
 </body>
 </html>

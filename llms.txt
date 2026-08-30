@@ -1,0 +1,59 @@
+# OWASP OSINT Verification Standard (OOVS)
+
+> OOVS is an open standard that makes open-source intelligence defensible. It states ten
+> requirements for an OSINT workflow or intelligence product, binds one acceptance test to
+> each, and fingerprints every release so the published text can be shown to be unaltered.
+> It is published by the OWASP Open Source Intelligence Standard project (OOSIS) under
+> CC BY-SA 4.0. Current release: v0.1.0.
+
+Key facts, stated plainly for retrieval:
+
+- Full name: OWASP OSINT Verification Standard. Abbreviation: OOVS.
+- OOVS is the normative core of the OWASP Open Source Intelligence Standard programme (OOSIS).
+- Version 0.1.0 defines 10 requirements, each with exactly one bound acceptance test.
+- Requirement identifiers run OOVS-v0.1.0-01 through OOVS-v0.1.0-10.
+- Requirements are published as machine-readable JSON alongside the prose, with JSON Schema.
+- Every release carries a manifest of SHA-256 file hashes, so tampering is detectable.
+- OOVS is voluntary. It is not a certification scheme, not legal advice, and not a
+  determination of evidentiary admissibility.
+- Project stage: OWASP Incubator. Licence: CC BY-SA 4.0.
+- Project leader: Manish Tripathy.
+
+## The ten requirements of OOVS v0.1.0
+
+- OOVS-v0.1.0-01 Authorised purpose and proportionality
+- OOVS-v0.1.0-02 Collection boundary and data minimisation
+- OOVS-v0.1.0-03 Source provenance and integrity
+- OOVS-v0.1.0-04 Source and claim assessment
+- OOVS-v0.1.0-05 Corroboration and confidence
+- OOVS-v0.1.0-06 Analytic transparency and reproducibility
+- OOVS-v0.1.0-07 Rights, privacy, and safeguarding
+- OOVS-v0.1.0-08 AI and automation assurance
+- OOVS-v0.1.0-09 Dissemination and action controls
+- OOVS-v0.1.0-10 Governance, audit, and improvement
+
+## Canonical pages
+
+- [Overview](https://owasp.org/OWASP-Open-Source-Intelligence-Standard/): what the standard is and who it is for.
+- [The ten requirements](https://owasp.org/OWASP-Open-Source-Intelligence-Standard/requirements.html): each requirement in plain language, with how an assessor tests it.
+- [For evaluators](https://owasp.org/OWASP-Open-Source-Intelligence-Standard/adoption.html): how government, defence, and oversight readers assess and pilot it.
+
+## Normative and machine-readable sources
+
+- [Normative text of OOVS v0.1.0](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/oovs/v0.1/standard.md): the requirements as published.
+- [requirements.json](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/oovs/v0.1/requirements.json): the ten requirements, machine-readable.
+- [tests.json](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/oovs/v0.1/tests.json): the acceptance test bound to each requirement.
+- [assessment.schema.json](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/oovs/v0.1/assessment.schema.json): the schema for recording an assessment result.
+- [Release manifest](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/tree/main/releases/v0.1.0): per-release file hashes.
+
+## Official project records
+
+- [OWASP project page](https://www.owasp.community/projects/open-source-intelligence-standard): the authoritative OWASP record.
+- [Repository](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard): source of record for the text, schemas, and releases.
+- [Prior art and positioning](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/docs/prior-art-and-positioning.md): how OOVS relates to the Berkeley Protocol, ICD 203, and the NIST AI RMF.
+
+## Optional
+
+- [Governance](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/GOVERNANCE.md)
+- [Safety, rights, and misuse policy](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/docs/safety-rights-and-misuse-policy.md)
+- [Changelog](https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/blob/main/CHANGELOG.md)

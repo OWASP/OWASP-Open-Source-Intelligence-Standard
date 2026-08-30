@@ -106,8 +106,8 @@ markup against a stale stylesheet, which looks broken rather than merely old.
 Both are requested with a version token to avoid this:
 
 ```html
-<link rel="stylesheet" href="./assets/css/site.css?v=20260829">
-<script src="./assets/js/site.js?v=20260829" defer></script>
+<link rel="stylesheet" href="./assets/css/site.css?v=20260829b">
+<script src="./assets/js/site.js?v=20260829b" defer></script>
 ```
 
 Bump the token in all three pages whenever you edit `site.css` or `site.js`. The

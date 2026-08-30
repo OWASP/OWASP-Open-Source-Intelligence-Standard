@@ -1,2 +1,60 @@
+# OWASP OSINT Verification Standard (OOVS)
+# The standard is published for public use, so everything here is open to
+# crawling, including the AI crawlers named below. They are listed explicitly
+# because being read and cited by answer engines is a goal of this project,
+# not something to be tolerated.
+
 User-agent: *
 Allow: /
+
+# Search and answer engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI crawlers and retrieval agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://owasp.org/OWASP-Open-Source-Intelligence-Standard/sitemap.xml
