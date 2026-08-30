@@ -34,9 +34,9 @@ the text you assessed against can be shown to be the text that was published.
 
 <div align="center">
 
-https://github.com/OWASP/OWASP-Open-Source-Intelligence-Standard/raw/main/media/oovs-overview.mp4
+<a href="media/oovs-overview.mp4"><img src="media/oovs-overview-thumb.jpg" alt="Play the OOVS overview video" width="640"></a>
 
-<sub>If the player does not load, [download the overview video](media/oovs-overview.mp4) (MP4, 1080p, 67s).</sub>
+<sub>60-second overview · MP4, 1080p · GitHub does not embed video players in READMEs, so this opens the file directly.</sub>
 
 </div>
 
