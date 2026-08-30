@@ -46,10 +46,11 @@ cannot answer four questions under scrutiny:
 
 <div align="center">
 
-<img src="media/oovs-overview-preview.gif" alt="OOVS overview: open-source intelligence is abundant, but the problem is not data, it is trust." width="820">
+<img src="media/oovs-overview-panel.jpg" alt="OOVS overview panel: an analyst reviewing source provenance, a corroboration map, and evidence integrity with a SHA-256 file hash marked verified, above five principles: traceable to origin, independently corroborated, accountable judgments, tamper-evident, and corrections that reach everyone." width="430">
 
-<b><a href="media/oovs-overview.mp4">▶ Watch the full 60-second overview</a></b><br>
-<sub>MP4 · 1080p · covers the data model, the provenance chain, and the assurance pipeline</sub>
+<sub><b>What the standard asks of a working analyst.</b><br>
+Provenance traced to origin · corroboration established independently · judgments attributed to a named person<br>
+integrity fingerprinted so alteration shows · corrections that reach everyone who saw the original</sub>
 
 </div>
 
@@ -100,6 +101,8 @@ Also worth reading: the [release notes](releases/v0.1.0/README.md), the
 Each requirement states an obligation, the evidence that demonstrates it, how an assessor tests it,
 and what counts as failure. None depends on a particular tool, vendor, or platform.
 
+<div align="center">
+
 | ID | Requirement |
 | --- | --- |
 | `OOVS-v0.1.0-01` | Authorised purpose and proportionality |
@@ -112,6 +115,8 @@ and what counts as failure. None depends on a particular tool, vendor, or platfo
 | `OOVS-v0.1.0-08` | AI and automation assurance |
 | `OOVS-v0.1.0-09` | Dissemination and action controls |
 | `OOVS-v0.1.0-10` | Governance, audit, and improvement |
+
+</div>
 
 Cite a requirement by its identifier, for example `OWASP OOVS v0.1.0, OOVS-v0.1.0-04`. The
 [plain-language walkthrough](https://owasp.org/OWASP-Open-Source-Intelligence-Standard/requirements.html)
@@ -280,10 +285,23 @@ licensed under the [Creative Commons Attribution-ShareAlike 4.0 International Li
 appropriate credit, link to the license, indicate changes, and license your contributions under the
 same terms.
 
+---
+
+## Overview video
+
+Sixty seconds on why verification is the constraint, the data model that carries proof with every
+record, and the provenance chain that keeps a claim auditable back to its source.
+
+<div align="center">
+
+<img src="media/oovs-overview-preview.gif" alt="OOVS overview: open-source intelligence is abundant, but the problem is not data, it is trust." width="840">
+
+<b><a href="media/oovs-overview.mp4">▶ Watch the full overview</a></b>
+
+</div>
+
 <div align="center">
 <br>
-<img src="media/oovs-overview-panel.jpg" alt="OOVS overview panel: an analyst reviewing source provenance, a corroboration map, and evidence integrity with a SHA-256 file hash marked verified, above five principles: traceable to origin, independently corroborated, accountable judgments, tamper-evident, and corrections that reach everyone." width="380">
-<br><br>
 <sub>OWASP and the OWASP logo are registered trademarks of the OWASP Foundation, Inc.<br>
 Incubator stage means the Foundation hosts this project; it is not a review or an endorsement of the content.</sub>
 </div>
