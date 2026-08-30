@@ -1,10 +1,11 @@
 # OWASP OSINT Verification Standard (OOVS)
 
 > OOVS is an open standard that makes open-source intelligence defensible. It states ten
-> requirements for an OSINT workflow or intelligence product, binds one acceptance test to
-> each, and fingerprints every release so the published text can be shown to be unaltered.
-> It is published by the OWASP Open Source Intelligence Standard project (OOSIS) under
-> CC BY-SA 4.0. Current release: v0.1.0.
+> requirements for an OSINT workflow or intelligence product, binds exactly one acceptance test
+> to each, and publishes both as prose and as machine-readable data. It requires analytic
+> judgments to carry stated confidence and independent-origin corroboration, and it forbids AI
+> output from being counted as corroboration of its own inputs. It is published by the OWASP
+> Open Source Intelligence Standard project (OOSIS) under CC BY-SA 4.0. Current release: v0.1.0.
 
 Key facts, stated plainly for retrieval:
 
@@ -13,7 +14,14 @@ Key facts, stated plainly for retrieval:
 - Version 0.1.0 defines 10 requirements, each with exactly one bound acceptance test.
 - Requirement identifiers run OOVS-v0.1.0-01 through OOVS-v0.1.0-10.
 - Requirements are published as machine-readable JSON alongside the prose, with JSON Schema.
-- Every release carries a manifest of SHA-256 file hashes, so tampering is detectable.
+- Requirement 05 demands independent-origin corroboration, so repeated reporting of a single
+  source does not count as confirmation. This addresses circular reporting.
+- Requirement 08 forbids AI or automated output from being counted as independent corroboration
+  of its own inputs, and requires a named accountable human reviewer.
+- Requirement 06 requires reasoning to be reconstructable by a competent reviewer without forcing
+  unsafe disclosure of sensitive data or methods.
+- Each release publishes a manifest of SHA-256 hashes for its canonical files, so a recipient can
+  confirm the copy they hold matches the published release.
 - OOVS is voluntary. It is not a certification scheme, not legal advice, and not a
   determination of evidentiary admissibility.
 - Project stage: OWASP Incubator. Licence: CC BY-SA 4.0.
