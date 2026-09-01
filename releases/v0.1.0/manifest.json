@@ -10,7 +10,9 @@
   "scope": "The OOVS L1 Foundational baseline: ten testable requirements, machine-readable catalogue, acceptance tests, assessment format, external mappings, governance, and validation assets.",
   "runtime": {
     "python": ">=3.10",
-    "dependencies": ["jsonschema==4.25.1"],
+    "dependencies": [
+      "jsonschema==4.25.1"
+    ],
     "validation_command": "python3 scripts/validate_assets.py"
   },
   "canonical_files": [
@@ -92,7 +94,7 @@
     {
       "path": "scripts/validate_assets.py",
       "role": "validation",
-      "sha256": "0feea6074847db6c2ca2199baefd8c5e659cbb5f8c06b07986833e095575b52c"
+      "sha256": "2b6fbfed3d7059cd1f51c22a78f6a6d71128996ea461826fe48cbe1726855f1a"
     },
     {
       "path": ".github/workflows/validate-structured-assets.yml",
@@ -102,7 +104,7 @@
     {
       "path": "tests/fixtures/manifest.json",
       "role": "test",
-      "sha256": "9291ed722b89cbb9c1eeb43b3bc79630d2b7f2a5353537f37381920f9d7ec069"
+      "sha256": "6425e5f49237f9c1f5569db7ee28d07f6e64ded076f2d7bc3437453c6e83e7a1"
     },
     {
       "path": "tests/fixtures/invalid/oig-unknown-node.json",
@@ -128,6 +130,11 @@
       "path": "tests/fixtures/invalid/requirements-missing-evidence.json",
       "role": "test",
       "sha256": "aeed79098308495bca24ea3aefe8eb07ab5e14569b4aac85656c8f29fb4b6793"
+    },
+    {
+      "path": "tests/fixtures/invalid/requirements-unknown-test-ref.json",
+      "role": "test",
+      "sha256": "5325b55f55fd23876a3357dee179a3b7a48f3bb67020d7eb709c5f31c37fcb4a"
     }
   ],
   "validation": {

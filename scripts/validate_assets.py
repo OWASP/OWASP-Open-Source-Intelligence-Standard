@@ -106,6 +106,14 @@ def canonical_requirement_ids() -> set[str]:
     return {str(item.get("id")) for item in canonical_requirements()}
 
 
+def canonical_test_ids() -> set[str]:
+    document = require_object(load_json(OOVS_DIR / "tests.json"), OOVS_DIR / "tests.json")
+    tests = document.get("tests")
+    if not isinstance(tests, list):
+        raise ValidationFailure("oovs/v0.1/tests.json: tests must be an array")
+    return {str(item.get("id")) for item in tests if isinstance(item, dict)}
+
+
 def semantic_oig(document: dict[str, Any], path: Path, *, require_full: bool = True) -> None:
     nodes = document.get("nodes")
     relationships = document.get("relationships")
@@ -197,6 +205,11 @@ def semantic_requirements(
         raise ValidationFailure(f"{relative(path)}: requirement ordinals must be 1 through 10 in order")
     if len(test_refs) != len(set(test_refs)):
         raise ValidationFailure(f"{relative(path)}: duplicate acceptance-test reference")
+    unknown_tests = sorted(set(test_refs).difference(canonical_test_ids()))
+    if unknown_tests:
+        raise ValidationFailure(
+            f"{relative(path)}: test_refs reference unknown acceptance tests: {unknown_tests}"
+        )
 
 
 def semantic_tests(document: dict[str, Any], path: Path, *, require_full: bool = True) -> None:
@@ -312,8 +325,10 @@ def validate_markdown_parity() -> int:
             f"{relative(markdown_path)}: requirement headings do not match requirements.json"
         )
 
+    boundary = re.compile(r"^#{2,6} ", re.MULTILINE)
     for index, match in enumerate(matches):
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(markdown)
+        next_heading = boundary.search(markdown, match.end())
+        end = next_heading.start() if next_heading else len(markdown)
         section = normalize_markdown(markdown[match.start():end])
         requirement = requirements[index]
         for field in ("objective", "normative_statement"):
@@ -369,12 +384,21 @@ def validate_fixtures() -> tuple[int, int]:
             raise ValidationFailure(f"{relative(FIXTURE_MANIFEST)}: fixture entry must be an object")
         instance_path = ROOT / str(entry["instance"])
         schema_path = ROOT / str(entry["schema"])
+        expected = str(entry.get("expected_error", "")).lower()
+        if not expected:
+            raise ValidationFailure(
+                f"{relative(FIXTURE_MANIFEST)}: negative fixture "
+                f"{entry.get('name', str(entry['instance']))!r} needs an expected_error"
+            )
+        if not instance_path.is_file():
+            raise ValidationFailure(
+                f"{relative(FIXTURE_MANIFEST)}: negative fixture instance missing: {entry['instance']}"
+            )
         try:
             document = validate_instance(instance_path, schema_path)
             run_semantic(str(entry["semantic"]), document, instance_path)
         except ValidationFailure as exc:
-            expected = str(entry.get("expected_error", "")).lower()
-            if expected and expected not in str(exc).lower():
+            if expected not in str(exc).lower():
                 raise ValidationFailure(
                     f"{relative(instance_path)}: failed as expected, but error did not contain "
                     f"{expected!r}: {exc}"
