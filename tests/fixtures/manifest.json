@@ -67,6 +67,13 @@
       "schema": "oovs/v0.1/requirements.schema.json",
       "semantic": "oovs_requirements_partial",
       "expected_error": "evidence"
+    },
+    {
+      "name": "OOVS requirement references unknown acceptance test",
+      "instance": "tests/fixtures/invalid/requirements-unknown-test-ref.json",
+      "schema": "oovs/v0.1/requirements.schema.json",
+      "semantic": "oovs_requirements_partial",
+      "expected_error": "unknown acceptance tests"
     }
   ]
 }
