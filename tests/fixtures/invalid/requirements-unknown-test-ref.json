@@ -1,0 +1,659 @@
+{
+  "spec_version": "0.1.0",
+  "release_status": "released",
+  "title": "OWASP OSINT Verification Standard Foundational Requirements",
+  "level": "L1",
+  "canonical_markdown": "standard.md",
+  "requirements": [
+    {
+      "id": "OOVS-v0.1.0-01",
+      "ordinal": 1,
+      "level": "L1",
+      "family": "purpose_and_authority",
+      "title": "Authorised purpose and proportionality",
+      "objective": "Prevent collection or analysis without a defined, accountable, and appropriately bounded purpose.",
+      "normative_statement": "Before material collection or processing begins, the assessment target MUST record the intended decision or protective outcome, accountable owner, applicable authority or policy basis, scope, necessity, expected benefit, foreseeable harm, less-intrusive alternatives, retention intent, review point, and stop or escalation conditions. Work MUST stop or be escalated when authority or purpose is materially unclear.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies to every workflow or product assessment."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Approved mission or product plan",
+        "Authority or policy reference",
+        "Pre-work necessity, proportionality, and risk record",
+        "Retention and review date"
+      ],
+      "assessment": {
+        "procedure": [
+          "Select representative work initiated during the assessment period.",
+          "Confirm the required record existed before material collection and matched actual activity.",
+          "Confirm material scope changes were stopped or re-approved."
+        ],
+        "pass_criteria": [
+          "All sampled work has a timely, accountable record.",
+          "Activity remains within its approved purpose and scope.",
+          "Material deviations are stopped or approved and recorded."
+        ],
+        "failure_conditions": [
+          "Material collection began without a recorded purpose or accountable owner.",
+          "Authority was materially unclear and work continued without escalation.",
+          "Actual activity exceeded approved scope without recorded approval."
+        ]
+      },
+      "exceptions": [],
+      "test_refs": [
+        "OOVS-v0.1.0-T99"
+      ],
+      "references": [
+        {
+          "id": "BERKELEY_PROTOCOL",
+          "title": "Berkeley Protocol on Digital Open Source Investigations",
+          "url": "https://www.ohchr.org/sites/default/files/2022-04/OHCHR_BerkeleyProtocol.pdf",
+          "relationship": "Related professional planning, ethical, and risk context; not an equivalence claim."
+        },
+        {
+          "id": "EU_LED",
+          "title": "Directive (EU) 2016/680",
+          "url": "https://eur-lex.europa.eu/eli/dir/2016/680/oj",
+          "relationship": "Jurisdictional example for lawful processing, necessity, and accountability; scope must be determined separately."
+        }
+      ],
+      "source_notes": [
+        "The pre-work record captures objective, necessity, proportionality, minimisation, retention, and review decisions without asserting a legal conclusion for any jurisdiction."
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-02",
+      "ordinal": 2,
+      "level": "L1",
+      "family": "collection",
+      "title": "Collection boundary and data minimisation",
+      "objective": "Limit collection to relevant information obtained through authorised, permitted means.",
+      "normative_statement": "The assessment target MUST define and enforce source, technique, field, access, and time boundaries. It MUST minimise incidental and sensitive data and document approved exceptions. It MUST NOT bypass access controls, obtain or use credentials without authority, induce disclosure through deception, or treat public availability alone as sufficient authority to process data.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies whenever the target collects, receives, queries, enriches, or retains source material."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Collection plan",
+        "Source and technique allow/deny rules",
+        "Tool configuration",
+        "Minimisation and incidental-data handling rules",
+        "Approved exceptions"
+      ],
+      "assessment": {
+        "procedure": [
+          "Compare sampled acquisitions and tool settings with approved boundaries.",
+          "Inspect rejected or escalated collections.",
+          "Trace the disposition of unnecessary and incidental data."
+        ],
+        "pass_criteria": [
+          "Sampled collection is relevant and within boundary.",
+          "Prohibited methods are blocked.",
+          "Sensitive exceptions have prior approval and safeguards.",
+          "Unnecessary data is not retained."
+        ],
+        "failure_conditions": [
+          "The target bypassed an access control or used credentials without authority.",
+          "Collection exceeded approved purpose, source, field, or time boundaries.",
+          "Unnecessary or incidental sensitive data was retained without approved need."
+        ]
+      },
+      "exceptions": [
+        "A documented emergency authority may alter timing but not eliminate accountability, minimisation, and retrospective review."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T02"
+      ],
+      "references": [
+        {
+          "id": "BERKELEY_PROTOCOL",
+          "title": "Berkeley Protocol on Digital Open Source Investigations",
+          "url": "https://www.ohchr.org/sites/default/files/2022-04/OHCHR_BerkeleyProtocol.pdf",
+          "relationship": "Related collection, ethical, and risk guidance; not an authorisation determination."
+        },
+        {
+          "id": "EU_LED",
+          "title": "Directive (EU) 2016/680",
+          "url": "https://eur-lex.europa.eu/eli/dir/2016/680/oj",
+          "relationship": "Jurisdictional example for purpose limitation and minimisation."
+        }
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-03",
+      "ordinal": 3,
+      "level": "L1",
+      "family": "provenance",
+      "title": "Source provenance and integrity",
+      "objective": "Let an authorised reviewer determine what was observed, its origin, and its transformation history.",
+      "normative_statement": "Every material item MUST have a provenance record containing a source reference, observation time and time zone, collector or system, acquisition method, original-versus-derived status, material transformations, handling context, and an integrity mechanism appropriate to the source and consequence. Original and derived artefacts MUST remain distinguishable. A hash or provenance credential MUST NOT be represented as proof that content is truthful or authentic.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies to every material source item and derived artefact in scope."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Provenance records",
+        "Source snapshots or controlled references where permitted",
+        "Transformation logs",
+        "Integrity values where appropriate",
+        "Chain-of-handling record for consequential material"
+      ],
+      "assessment": {
+        "procedure": [
+          "Trace sampled product claims backward through transformations to the observed source.",
+          "Trace sampled sources forward to derived artefacts.",
+          "Verify timestamps, identifiers, and integrity controls are internally consistent."
+        ],
+        "pass_criteria": [
+          "Sampled material is traceable without silent gaps.",
+          "Originals and derivatives are distinguishable.",
+          "Material changes are recorded.",
+          "Integrity signals are described within their actual limits."
+        ],
+        "failure_conditions": [
+          "A material claim cannot be traced to an observed source.",
+          "A derived artefact is presented as an unchanged original.",
+          "A hash or credential is presented as proof of truth or authenticity."
+        ]
+      },
+      "exceptions": [
+        "Where a source cannot be safely preserved, a controlled reference and documented limitation may replace a copy if the reviewer can still understand what was observed."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T03"
+      ],
+      "references": [
+        {
+          "id": "BERKELEY_PROTOCOL",
+          "title": "Berkeley Protocol on Digital Open Source Investigations",
+          "url": "https://www.ohchr.org/sites/default/files/2022-04/OHCHR_BerkeleyProtocol.pdf",
+          "relationship": "Related identification, collection, preservation, and verification guidance; OOVS does not determine admissibility."
+        },
+        {
+          "id": "W3C_PROV",
+          "title": "W3C PROV Overview",
+          "url": "https://www.w3.org/TR/prov-overview/",
+          "relationship": "Related general provenance concepts for entities, activities, and agents."
+        }
+      ],
+      "source_notes": [
+        "Integrity mechanisms and provenance credentials establish that content is unchanged or carries an assertion; they do not establish that content is truthful or authentic."
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-04",
+      "ordinal": 4,
+      "level": "L1",
+      "family": "source_and_claim",
+      "title": "Source and claim assessment",
+      "objective": "Prevent source reputation, repetition, metadata, or automation from being mistaken for proof.",
+      "normative_statement": "The assessment target MUST evaluate source reliability separately from claim credibility and MUST link each material claim to supporting and contradicting evidence. When apparent corroboration affects a decision, the analyst MUST investigate shared origins far enough to avoid counting reposts, quotations, syndicated reports, or model restatements as independent support. Earliest-discoverable-instance, metadata, detector, and content-provenance results MUST be treated as signals with documented limitations, not standalone proof.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies whenever material claims or judgments are assessed."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Source assessments",
+        "Claim-to-evidence links",
+        "Origin or citation-chain notes",
+        "Contradiction and gap log",
+        "Verification record"
+      ],
+      "assessment": {
+        "procedure": [
+          "Sample material claims and reconstruct their evidence chains.",
+          "Cluster evidence that shares an underlying origin.",
+          "Confirm source reliability did not substitute for assessment of the specific claim.",
+          "Review how metadata, detector, and provenance signals were characterised."
+        ],
+        "pass_criteria": [
+          "Every sampled material claim is traceable.",
+          "Common origins are not overcounted.",
+          "Contradictions and unknowns are visible.",
+          "Technical signals are not overstated."
+        ],
+        "failure_conditions": [
+          "Multiple repetitions of one origin were counted as independent corroboration.",
+          "A source's reputation was treated as proof of the specific claim.",
+          "Metadata, a detector result, or a provenance credential was treated as standalone proof."
+        ]
+      },
+      "exceptions": [
+        "The depth of origin tracing may be risk-based, but the limitation must be explicit when independence affects a decision."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T04"
+      ],
+      "references": [
+        {
+          "id": "ICD203",
+          "title": "Intelligence Community Directive 203: Analytic Standards",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-203.pdf",
+          "relationship": "Related source-quality, alternatives, uncertainty, and analytic tradecraft concepts; no IC compliance claim."
+        },
+        {
+          "id": "BERKELEY_PROTOCOL",
+          "title": "Berkeley Protocol on Digital Open Source Investigations",
+          "url": "https://www.ohchr.org/sites/default/files/2022-04/OHCHR_BerkeleyProtocol.pdf",
+          "relationship": "Related verification guidance and source-context considerations."
+        }
+      ],
+      "source_notes": [
+        "Independence is assessed by counting distinct origins rather than mentions, with tracing depth proportionate to the consequence of the decision."
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-05",
+      "ordinal": 5,
+      "level": "L1",
+      "family": "corroboration_and_confidence",
+      "title": "Corroboration and confidence",
+      "objective": "Align verification depth and expressed confidence with the consequence of error.",
+      "normative_statement": "Every material analytic judgment MUST state confidence and its basis, including provenance quality, independence, contradictions, assumptions, and significant gaps. High-consequence claims MUST receive corroboration appropriate to the decision and threat model, including independent-origin evidence where reasonably available. When sufficient corroboration is unavailable, the claim MUST be labelled unverified or insufficiently corroborated and MUST NOT be the sole basis for consequential action unless a documented, authorised emergency process applies.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies to every material analytic judgment."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Confidence statement",
+        "Corroboration rationale",
+        "Source-independence assessment where relevant",
+        "Alternatives and contradictions",
+        "Emergency approval when used"
+      ],
+      "assessment": {
+        "procedure": [
+          "Compare language and proposed action for sampled claims with evidence strength, independence, recency, and contradictions.",
+          "Test whether multiple mentions were incorrectly treated as multiple origins.",
+          "Inspect any consequential action based on incomplete corroboration."
+        ],
+        "pass_criteria": [
+          "Confidence is supported rather than asserted.",
+          "Verification depth is consequence-sensitive.",
+          "Unsupported claims are appropriately constrained.",
+          "Emergency exceptions are authorised, time-limited, and reviewed."
+        ],
+        "failure_conditions": [
+          "A material judgment lacks a confidence basis.",
+          "A high-consequence claim relies only on unacknowledged single-origin repetition.",
+          "An insufficiently corroborated claim is the sole basis for consequential action without an authorised emergency process."
+        ]
+      },
+      "exceptions": [
+        "A documented emergency process may permit time-limited action on incomplete evidence when authority, necessity, safeguards, uncertainty, and retrospective review are recorded."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T05"
+      ],
+      "references": [
+        {
+          "id": "ICD203",
+          "title": "Intelligence Community Directive 203: Analytic Standards",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-203.pdf",
+          "relationship": "Related confidence, uncertainty, alternatives, and analytic standards; no IC compliance claim."
+        },
+        {
+          "id": "ICD206",
+          "title": "Intelligence Community Directive 206: Sourcing Requirements for Disseminated Analytic Products",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-206.pdf",
+          "relationship": "Related sourcing transparency; implementation and classification rules are organisation-specific."
+        }
+      ],
+      "source_notes": [
+        "OOVS deliberately sets no universal fixed source count, because evidence quality, relevance, independence, and consequence determine sufficiency."
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-06",
+      "ordinal": 6,
+      "level": "L1",
+      "family": "analytic_transparency",
+      "title": "Analytic transparency and reproducibility",
+      "objective": "Make reasoning reviewable without requiring unsafe disclosure.",
+      "normative_statement": "Intelligence products MUST distinguish observed information, analytic inference, assumptions, alternatives, and unknowns. Material methods, selection criteria, queries, transformations, exclusions, and limitations MUST be recorded at a level that enables an authorised, competent reviewer to reconstruct the reasoning while protecting sensitive data and methods.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies to every assessed analytic workflow or product."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Analytic record",
+        "Method or query log",
+        "Fact/inference labels",
+        "Alternative explanations",
+        "Peer or independent review notes",
+        "Reproducibility result"
+      ],
+      "assessment": {
+        "procedure": [
+          "Have an authorised reviewer reconstruct a representative judgment from controlled records.",
+          "Record whether the reviewer reaches a materially compatible conclusion.",
+          "Document and disposition material differences."
+        ],
+        "pass_criteria": [
+          "Reasoning can be followed end to end.",
+          "Material assumptions and exclusions are explicit.",
+          "Reproduction differences are resolved or carried as uncertainty."
+        ],
+        "failure_conditions": [
+          "Observed information and inference are materially conflated.",
+          "A reviewer cannot reconstruct a material judgment from authorised records.",
+          "Material reproduction differences are suppressed or left unexplained."
+        ]
+      },
+      "exceptions": [
+        "Sensitive methods or data may be restricted, but an authorised review path and sufficient controlled record must remain."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T06"
+      ],
+      "references": [
+        {
+          "id": "ICD203",
+          "title": "Intelligence Community Directive 203: Analytic Standards",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-203.pdf",
+          "relationship": "Related distinctions, alternatives, uncertainty, and explanation of judgments."
+        },
+        {
+          "id": "ICD206",
+          "title": "Intelligence Community Directive 206: Sourcing Requirements for Disseminated Analytic Products",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-206.pdf",
+          "relationship": "Related sourcing transparency; no claim of implementing classified or organisation-specific rules."
+        }
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-07",
+      "ordinal": 7,
+      "level": "L1",
+      "family": "rights_and_safeguarding",
+      "title": "Rights, privacy, and safeguarding",
+      "objective": "Prevent avoidable harm and preserve applicable rights throughout the information lifecycle.",
+      "normative_statement": "The assessment target MUST identify applicable legal, policy, contractual, human-rights, privacy, records, and safeguarding obligations for its context and MUST implement risk-proportionate minimisation, access control, security, retention/deletion, accuracy review, and correction or redress routes. High-consequence use MUST receive documented specialist review. Material concerning minors or vulnerable people MUST follow applicable safeguarding and reporting procedures and MUST NOT be placed in public project channels.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies to every workflow or product; control depth depends on data and consequence."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Contextual obligations register",
+        "Risk or impact assessment",
+        "Access review",
+        "Retention and deletion records",
+        "Safeguarding route",
+        "Correction or redress procedure and sampled outcomes"
+      ],
+      "assessment": {
+        "procedure": [
+          "Inspect safeguards across sampled records and products.",
+          "Test access and expiry controls.",
+          "Verify that a material error can be corrected through all known downstream recipients."
+        ],
+        "pass_criteria": [
+          "Obligations are context-specific rather than assumed universal.",
+          "Controls match the risk.",
+          "Access and retention are enforced.",
+          "Correction and safeguarding routes are usable."
+        ],
+        "failure_conditions": [
+          "High-consequence work lacks a documented specialist review.",
+          "Access or retention rules exist only on paper and are not enforced.",
+          "A known material error cannot be corrected downstream.",
+          "Sensitive material involving minors or vulnerable people is placed in a public project channel."
+        ]
+      },
+      "exceptions": [],
+      "test_refs": [
+        "OOVS-v0.1.0-T07"
+      ],
+      "references": [
+        {
+          "id": "BERKELEY_PROTOCOL",
+          "title": "Berkeley Protocol on Digital Open Source Investigations",
+          "url": "https://www.ohchr.org/sites/default/files/2022-04/OHCHR_BerkeleyProtocol.pdf",
+          "relationship": "Related dignity, safety, ethical, and professional responsibilities."
+        },
+        {
+          "id": "EU_LED",
+          "title": "Directive (EU) 2016/680",
+          "url": "https://eur-lex.europa.eu/eli/dir/2016/680/oj",
+          "relationship": "Jurisdictional example for accuracy, security, retention, rights, and oversight; not a global default."
+        }
+      ],
+      "source_notes": [
+        "Obligations are identified for the implementer's own context; OOVS does not assign legal-risk grades or make admissibility determinations."
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-08",
+      "ordinal": 8,
+      "level": "L1",
+      "family": "ai_and_automation",
+      "title": "AI and automation assurance",
+      "objective": "Keep humans accountable and prevent automated output from laundering uncertainty.",
+      "normative_statement": "AI-generated or AI-transformed output MUST be treated as an unverified analytical aid until validated against traceable evidence. The assessment target MUST record the system and version, relevant configuration, input provenance, material transformations, evaluation method, known limitations, material output changes, and accountable human reviewer. AI output MUST NOT be counted as independent corroboration of its inputs or make an unreviewed high-consequence determination.",
+      "applicability": {
+        "mode": "conditional",
+        "applies_when": [
+          "An AI system materially collects, transforms, ranks, links, summarises, analyses, or drafts content in the assessed target."
+        ],
+        "not_applicable_when": [
+          "No AI system materially participates in the assessed workflow or product, and that absence is verified and recorded."
+        ]
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "System inventory and version record",
+        "Input/output and transformation trace",
+        "Task-relevant evaluation",
+        "Error monitoring",
+        "Human review and override record",
+        "Prohibited-use controls"
+      ],
+      "assessment": {
+        "procedure": [
+          "Trace sampled AI-assisted statements to inputs and reviewer decisions.",
+          "Test known task-relevant failure cases.",
+          "Verify the workflow prevents unreviewed high-consequence release or action."
+        ],
+        "pass_criteria": [
+          "AI involvement is visible.",
+          "Material outputs are evidence-traceable and validated.",
+          "Limitations are communicated.",
+          "Accountable human review occurs before consequence."
+        ],
+        "failure_conditions": [
+          "AI output is treated as evidence or independent corroboration without validation.",
+          "A material AI-assisted statement cannot be traced to inputs and review.",
+          "An AI system makes an unreviewed high-consequence determination."
+        ]
+      },
+      "exceptions": [],
+      "test_refs": [
+        "OOVS-v0.1.0-T08"
+      ],
+      "references": [
+        {
+          "id": "NIST_AI_RMF",
+          "title": "NIST Artificial Intelligence Risk Management Framework 1.0",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "relationship": "Related voluntary risk governance, mapping, measurement, and management concepts."
+        },
+        {
+          "id": "EU_AI_ACT",
+          "title": "Regulation (EU) 2024/1689",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+          "relationship": "Jurisdictional legal context for certain AI systems and practices; applicability requires separate analysis."
+        }
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-09",
+      "ordinal": 9,
+      "level": "L1",
+      "family": "dissemination_and_action",
+      "title": "Dissemination and action controls",
+      "objective": "Preserve uncertainty, handling intent, and need-to-know boundaries through action and sharing.",
+      "normative_statement": "Intelligence products MUST identify their intended decision, audience, confidence, caveats, handling restrictions, validity or review time, and accountable release authority. Dissemination MUST use the minimum necessary detail and preserve material caveats downstream. The workflow MUST distinguish an allegation or report, a lead, an analytic assessment, and a verified finding, and MUST provide a route to withdraw or correct distributed material.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies whenever a product or material result is shared or used for action."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Approved product",
+        "Recipient and authority record",
+        "Handling decision",
+        "Action log",
+        "Downstream correction or withdrawal mechanism"
+      ],
+      "assessment": {
+        "procedure": [
+          "Inspect sampled releases and recipient lists.",
+          "Follow one material claim into a downstream product or action.",
+          "Test correction propagation."
+        ],
+        "pass_criteria": [
+          "Recipients and detail are justified.",
+          "Material caveats persist downstream.",
+          "Claim status is not inflated.",
+          "Corrective messages can reach known recipients."
+        ],
+        "failure_conditions": [
+          "A product omits material uncertainty, intended use, or release authority.",
+          "Distribution exceeds need-to-know or minimum necessary detail.",
+          "A lead or allegation is represented as a verified finding.",
+          "Known recipients cannot be reached with a material correction."
+        ]
+      },
+      "exceptions": [
+        "A handling label is optional unless selected by the source, community, contract, law, or policy; it never replaces those obligations."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T09"
+      ],
+      "references": [
+        {
+          "id": "ICD206",
+          "title": "Intelligence Community Directive 206: Sourcing Requirements for Disseminated Analytic Products",
+          "url": "https://www.dni.gov/files/documents/ICD/ICD-206.pdf",
+          "relationship": "Related sourcing transparency for disseminated analysis; no IC compliance claim."
+        },
+        {
+          "id": "FIRST_TLP",
+          "title": "FIRST Traffic Light Protocol 2.0",
+          "url": "https://www.first.org/tlp/",
+          "relationship": "Optional sharing-boundary vocabulary when applicable; not a classification or universal legal control."
+        }
+      ],
+      "review_status": "released"
+    },
+    {
+      "id": "OOVS-v0.1.0-10",
+      "ordinal": 10,
+      "level": "L1",
+      "family": "governance_and_improvement",
+      "title": "Governance, audit, and improvement",
+      "objective": "Ensure accountable ownership, competent challenge, correction, and measurable learning.",
+      "normative_statement": "The assessment target MUST assign accountable roles; define competence and training expectations; maintain an independent challenge route proportionate to risk; review controls periodically; and record incidents, material errors, corrections, assessment findings, and resulting improvements. High-consequence release approval MUST NOT rely solely on the person or automated system that produced the judgment.",
+      "applicability": {
+        "mode": "always",
+        "applies_when": [
+          "The requirement applies to every assessed workflow or product governance context."
+        ],
+        "not_applicable_when": []
+      },
+      "high_consequence_required": true,
+      "evidence": [
+        "Role and separation-of-duty record",
+        "Competence and training evidence",
+        "Review schedule",
+        "Audit sample",
+        "Challenge decisions",
+        "Incident and correction log",
+        "Improvement actions"
+      ],
+      "assessment": {
+        "procedure": [
+          "Inspect governance records.",
+          "Trace a challenge or correction to its disposition.",
+          "Verify overdue actions and repeat failures are escalated."
+        ],
+        "pass_criteria": [
+          "Ownership and review operate in practice.",
+          "Challenge can change an outcome.",
+          "Corrections reach affected products.",
+          "Improvement actions have owners and due dates."
+        ],
+        "failure_conditions": [
+          "No accountable owner exists for a material workflow or product.",
+          "High-consequence approval relies only on the producer.",
+          "Material errors or challenges are not recorded and dispositioned.",
+          "Repeat failures have no accountable improvement action."
+        ]
+      },
+      "exceptions": [
+        "A small team may use an external or cross-team challenger; independence is functional and conflict-based rather than a fixed organisational structure."
+      ],
+      "test_refs": [
+        "OOVS-v0.1.0-T10"
+      ],
+      "references": [
+        {
+          "id": "NIST_AI_RMF",
+          "title": "NIST Artificial Intelligence Risk Management Framework 1.0",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+          "relationship": "Related governance, accountability, measurement, and improvement concepts, particularly where AI is used."
+        },
+        {
+          "id": "ISO_DIRECTIVES",
+          "title": "ISO/IEC Directives, Part 2",
+          "url": "https://www.iso.org/sites/directives/current/part2/index.xhtml",
+          "relationship": "Related standards-drafting discipline and verifiable provisions; OOVS is not an ISO conformity scheme."
+        }
+      ],
+      "source_notes": [
+        "Challenge independence is functional: it depends on conflicts and competence rather than on a specific organisational structure."
+      ],
+      "review_status": "released"
+    }
+  ]
+}
